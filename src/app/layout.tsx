@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
 import { Lexend } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import { ConditionalLayout } from '@/components/ConditionalLayout'
+
+const GA_MEASUREMENT_ID = 'G-6N0WKJ0B2C'
 
 const lexend = Lexend({
   subsets: ['latin'],
@@ -111,6 +114,19 @@ export default function RootLayout({
         />
       </head>
       <body className={`${lexend.variable} font-sans antialiased bg-black`}>
+        {/* Google Analytics */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         <ConditionalLayout>{children}</ConditionalLayout>
       </body>
     </html>
