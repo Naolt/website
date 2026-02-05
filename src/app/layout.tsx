@@ -27,21 +27,21 @@ export const metadata: Metadata = {
   authors: [{ name: 'Aurora Solutions' }],
   creator: 'Aurora Solutions',
   publisher: 'Aurora Solutions',
-  metadataBase: new URL('https://aurorasolutions.et'), // Update with your actual domain
+  metadataBase: new URL('https://aurorasolve.com'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://aurorasolutions.et',
+    url: 'https://aurorasolve.com',
     title: 'Aurora Solutions | Digital Innovation in Ethiopia',
     description:
       'Empowering businesses through digital innovation. Web development, mobile apps, ERP/CRM systems, and IT consulting.',
     siteName: 'Aurora Solutions',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Aurora Solutions',
+        alt: 'Aurora Solutions - Digital Innovation in Ethiopia',
       },
     ],
   },
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: 'Aurora Solutions | Digital Innovation in Ethiopia',
     description:
       'Empowering businesses through digital innovation. Web development, mobile apps, ERP/CRM systems, and IT consulting.',
-    images: ['/og-image.jpg'],
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
@@ -70,8 +70,46 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Aurora Solutions',
+    url: 'https://aurorasolve.com',
+    logo: 'https://aurorasolve.com/images/logo-light.png',
+    description: 'Leading digital solutions company providing web development, mobile apps, ERP/CRM systems, branding, and IT consulting services.',
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'ET',
+      addressLocality: 'Addis Ababa',
+    },
+    sameAs: [
+      'https://www.linkedin.com/company/aurora-horizon-solutions/',
+      'https://www.instagram.com/aurorasolutions_',
+      'https://www.facebook.com/share/1C7umcLZ6Z/',
+      'https://x.com/aurorasolution_',
+      'https://www.tiktok.com/@aurora_solutions11',
+      'https://www.threads.com/@aurorasolutions_',
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'Customer Service',
+      availableLanguage: ['en', 'am'],
+    },
+    areaServed: ['ET', 'KE', 'CA', 'DE', 'US'],
+    founder: {
+      '@type': 'Organization',
+      name: 'Aurora Solutions',
+    },
+  }
+
   return (
     <html lang="en" className="smooth-scroll">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${lexend.variable} font-sans antialiased bg-black`}>
         <ConditionalLayout>{children}</ConditionalLayout>
       </body>
