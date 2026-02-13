@@ -53,3 +53,22 @@ export interface Client {
   website?: string
   order: number
 }
+
+export interface SiteSettings {
+  _id: string
+  title: string
+  description?: string
+  email?: string
+  phone?: string[]
+  address?: string
+  whatsappNumber?: string
+  socialMedia?: {
+    linkedin?: string
+    instagram?: string
+    facebook?: string
+    twitter?: string
+    tiktok?: string
+    threads?: string
+    telegram?: string
+  }
+}

@@ -129,3 +129,17 @@ export const clientsQuery = groq`
     order
   }
 `
+
+// Site Settings Query
+export const siteSettingsQuery = groq`
+  *[_type == "siteSettings"][0] {
+    _id,
+    title,
+    description,
+    email,
+    phone,
+    address,
+    whatsappNumber,
+    socialMedia
+  }
+`

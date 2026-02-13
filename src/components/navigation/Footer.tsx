@@ -1,9 +1,11 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
-import { Mail, Phone, MapPin, Instagram, Send } from 'lucide-react'
+import { Mail, Phone, MapPin, Linkedin, Facebook, Twitter } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
+import { client } from '@/lib/sanity/client'
+import { siteSettingsQuery } from '@/lib/sanity/queries'
+import type { SiteSettings } from '@/types/sanity'
+import { FooterNavButton } from './FooterNavButton'
 
 const navigation = {
   company: [
@@ -18,42 +20,56 @@ const navigation = {
     { name: 'ERP/CRM Systems', href: '#services' },
     { name: 'Branding & Design', href: '#services' },
   ],
-  social: [
-    {
-      name: 'Instagram',
-      href: 'https://instagram.com/AuroraSolutions',
-      icon: Instagram,
-    },
-    {
-      name: 'TikTok',
-      href: 'https://tiktok.com/@AuroraSolutions11',
-      icon: Send, // Using Send as placeholder for TikTok
-    },
-    {
-      name: 'Telegram',
-      href: 'https://t.me/AuroraSolutions',
-      icon: Send,
-    },
-  ],
 }
 
-export function Footer() {
+// Default fallback data
+const defaultSettings: SiteSettings = {
+  _id: 'default',
+  title: 'Aurora Solutions',
+  email: 'AuroraSolutions11@gmail.com',
+  phone: ['+251 9 10940419', '+251 9 10168641'],
+  address: 'Addis Ababa, Ethiopia',
+  socialMedia: {
+    linkedin: 'https://www.linkedin.com/company/aurora-horizon-solutions/',
+    instagram: 'https://www.instagram.com/aurorasolutions_',
+    facebook: 'https://www.facebook.com/share/1C7umcLZ6Z/',
+    twitter: 'https://x.com/aurorasolution_',
+  },
+}
+
+export async function Footer() {
+  // Fetch site settings from Sanity
+  let settings: SiteSettings
+  try {
+    settings = await client.fetch<SiteSettings>(
+      siteSettingsQuery,
+      {},
+      { next: { revalidate: 60 } }
+    )
+    // If no settings in Sanity, use defaults
+    if (!settings) {
+      settings = defaultSettings
+    }
+  } catch (error) {
+    // Fallback to default if Sanity fetch fails
+    settings = defaultSettings
+  }
+
   const currentYear = new Date().getFullYear()
 
-  const scrollToSection = (href: string) => {
-    if (href.startsWith('#')) {
-      const element = document.getElementById(href.substring(1))
-      if (element) {
-        const offset = 80
-        const elementPosition = element.getBoundingClientRect().top
-        const offsetPosition = elementPosition + window.pageYOffset - offset
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth',
-        })
-      }
-    }
+  // Build social media array with icons
+  const socialMedia = []
+  if (settings.socialMedia?.linkedin) {
+    socialMedia.push({ name: 'LinkedIn', href: settings.socialMedia.linkedin, icon: Linkedin })
+  }
+  if (settings.socialMedia?.instagram) {
+    socialMedia.push({ name: 'Instagram', href: settings.socialMedia.instagram, icon: Facebook })
+  }
+  if (settings.socialMedia?.facebook) {
+    socialMedia.push({ name: 'Facebook', href: settings.socialMedia.facebook, icon: Facebook })
+  }
+  if (settings.socialMedia?.twitter) {
+    socialMedia.push({ name: 'Twitter', href: settings.socialMedia.twitter, icon: Twitter })
   }
 
   return (
@@ -78,20 +94,20 @@ export function Footer() {
             {/* Brand Column */}
             <div className="lg:col-span-1">
               <Link href="/" className="inline-block mb-4">
-              <Image
-              src="/images/logo-dark.png"
-              alt="Aurora Solutions"
-              width={600}
-              height={180}
-              className="h-32 w-auto brightness-0 invert"
-              priority
-            />
+                <Image
+                  src="/images/logo-dark.png"
+                  alt="Aurora Solutions"
+                  width={600}
+                  height={180}
+                  className="h-32 w-auto brightness-0 invert"
+                  priority
+                />
               </Link>
               <p className="text-sm text-white/60 mb-4 leading-relaxed">
-                Empowering businesses through digital innovation. From Ethiopia to the world.
+                {settings.description || 'Empowering businesses through digital innovation. From Ethiopia to the world.'}
               </p>
               <div className="flex items-center gap-4">
-                {navigation.social.map((item) => (
+                {socialMedia.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
@@ -112,12 +128,7 @@ export function Footer() {
               <ul className="space-y-3">
                 {navigation.company.map((item) => (
                   <li key={item.name}>
-                    <button
-                      onClick={() => scrollToSection(item.href)}
-                      className="text-sm text-white/60 hover:text-primary transition-colors"
-                    >
-                      {item.name}
-                    </button>
+                    <FooterNavButton href={item.href}>{item.name}</FooterNavButton>
                   </li>
                 ))}
               </ul>
@@ -129,12 +140,7 @@ export function Footer() {
               <ul className="space-y-3">
                 {navigation.services.map((item) => (
                   <li key={item.name}>
-                    <button
-                      onClick={() => scrollToSection(item.href)}
-                      className="text-sm text-white/60 hover:text-primary transition-colors"
-                    >
-                      {item.name}
-                    </button>
+                    <FooterNavButton href={item.href}>{item.name}</FooterNavButton>
                   </li>
                 ))}
               </ul>
@@ -144,38 +150,41 @@ export function Footer() {
             <div>
               <h3 className="font-semibold text-white mb-4">Get in Touch</h3>
               <ul className="space-y-3">
-                <li className="flex items-start gap-2">
-                  <Mail className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <a
-                    href="mailto:AuroraSolutions11@gmail.com"
-                    className="text-sm text-white/60 hover:text-primary transition-colors break-all"
-                  >
-                    AuroraSolutions11@gmail.com
-                  </a>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Phone className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <div className="text-sm text-white/60">
+                {settings.email && (
+                  <li className="flex items-start gap-2">
+                    <Mail className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                     <a
-                      href="tel:+251910940419"
-                      className="block hover:text-primary transition-colors"
+                      href={`mailto:${settings.email}`}
+                      className="text-sm text-white/60 hover:text-primary transition-colors break-all"
                     >
-                      +251-9-10940419
+                      {settings.email}
                     </a>
-                    <a
-                      href="tel:+251910168641"
-                      className="block hover:text-primary transition-colors"
-                    >
-                      +251-9-10168641
-                    </a>
-                  </div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <MapPin className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm text-white/60">
-                    Addis Ababa, Ethiopia
-                  </span>
-                </li>
+                  </li>
+                )}
+                {settings.phone && settings.phone.length > 0 && (
+                  <li className="flex items-start gap-2">
+                    <Phone className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                    <div className="text-sm text-white/60">
+                      {settings.phone.map((phoneNumber) => (
+                        <a
+                          key={phoneNumber}
+                          href={`tel:${phoneNumber.replace(/\s/g, '')}`}
+                          className="block hover:text-primary transition-colors"
+                        >
+                          {phoneNumber}
+                        </a>
+                      ))}
+                    </div>
+                  </li>
+                )}
+                {settings.address && (
+                  <li className="flex items-start gap-2">
+                    <MapPin className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                    <span className="text-sm text-white/60">
+                      {settings.address}
+                    </span>
+                  </li>
+                )}
               </ul>
             </div>
           </div>
