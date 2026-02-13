@@ -4,10 +4,11 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Sun, Moon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/Container'
 import { cn } from '@/lib/utils'
+import { useTheme } from '@/components/ThemeProvider'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -20,6 +21,7 @@ const navigation = [
 export function Navbar() {
   const pathname = usePathname()
   const router = useRouter()
+  const { theme, toggleTheme } = useTheme()
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
@@ -82,8 +84,8 @@ export function Navbar() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled
-          ? 'bg-black/95 backdrop-blur-md shadow-lg shadow-primary/5 border-b border-white/10'
-          : 'bg-black/30 backdrop-blur-sm'
+          ? 'bg-white/95 dark:bg-black/95 backdrop-blur-md shadow-lg shadow-primary/5 border-b border-gray-200 dark:border-white/10'
+          : 'bg-white/30 dark:bg-black/30 backdrop-blur-sm'
       )}
     >
       <Container>
@@ -91,11 +93,11 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/logo-dark.png"
+              src={theme === 'dark' ? '/images/logo-dark.png' : '/images/logo-light.png'}
               alt="Aurora Solutions"
               width={600}
               height={180}
-              className="h-32 w-auto brightness-0 invert"
+              className="h-32 w-auto"
               priority
             />
           </Link>
@@ -120,13 +122,27 @@ export function Navbar() {
                     'text-sm font-medium transition-colors',
                     isActive
                       ? 'text-primary'
-                      : 'text-white/90 hover:text-primary'
+                      : 'text-black dark:text-white hover:text-primary'
                   )}
                 >
                   {item.name}
                 </button>
               )
             })}
+
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg text-black dark:text-white hover:text-primary hover:bg-gray-100 dark:hover:bg-white/10 transition-all"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
+            </button>
+
             <Button
               onClick={() => handleNavClick('/#contact')}
               className="bg-primary text-black font-semibold hover:bg-primary/90 shadow-lg"
@@ -135,25 +151,38 @@ export function Navbar() {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            type="button"
-            className="lg:hidden p-2 rounded-md transition-colors text-white hover:bg-white/10"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            <span className="sr-only">Open menu</span>
-            {mobileMenuOpen ? (
-              <X className="h-6 w-6" aria-hidden="true" />
-            ) : (
-              <Menu className="h-6 w-6" aria-hidden="true" />
-            )}
-          </button>
+          {/* Mobile Menu Button & Theme Toggle */}
+          <div className="lg:hidden flex items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg text-black dark:text-white hover:text-primary hover:bg-gray-100 dark:hover:bg-white/10 transition-all"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
+            </button>
+            <button
+              type="button"
+              className="p-2 rounded-md transition-colors text-black dark:text-white hover:bg-gray-100 dark:hover:bg-white/10"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              <span className="sr-only">Open menu</span>
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
+          </div>
         </div>
       </Container>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-black/95 backdrop-blur-md border-b border-white/10">
+        <div className="lg:hidden bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-gray-200 dark:border-white/10">
           <Container>
             <div className="py-6 space-y-4">
               {navigation.map((item) => {
@@ -174,7 +203,7 @@ export function Navbar() {
                       'block w-full text-left px-4 py-2 text-base font-medium rounded-md transition-colors',
                       isActive
                         ? 'text-primary bg-primary/10'
-                        : 'text-white/90 hover:bg-white/10'
+                        : 'text-black dark:text-white hover:bg-gray-100 dark:hover:bg-white/10'
                     )}
                   >
                     {item.name}

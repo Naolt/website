@@ -25,7 +25,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center pt-32 md:pt-40 pb-24 bg-gradient-to-br from-black via-[#1a1a1a] to-black overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center pt-32 md:pt-40 pb-24 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-black dark:via-[#1a1a1a] dark:to-black overflow-hidden"
     >
       {/* Modern grid background with lime accents */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -54,7 +54,7 @@ export function Hero() {
         <div className="text-center max-w-5xl mx-auto">
           {/* Badge */}
           <FadeIn delay={0.1}>
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary/10 backdrop-blur-sm rounded-full border border-primary/20 text-primary text-sm font-medium mb-8 shadow-lg shadow-primary/5">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 dark:bg-primary/10 backdrop-blur-sm rounded-full border border-gray-900 dark:border-primary/20 text-primary text-sm font-medium mb-8 shadow-lg shadow-primary/5">
               <Sparkles className="w-4 h-4" />
               <span>Digital Innovation from Ethiopia 🇪🇹</span>
             </div>
@@ -63,7 +63,7 @@ export function Hero() {
           {/* Main Heading */}
           <FadeIn delay={0.2}>
             <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight">
-              <span className="text-white">Digital Solutions That</span>
+              <span className="text-gray-900 dark:text-white">Digital Solutions That</span>
               <br />
               <span className="text-primary">Transform</span>
             </h1>
@@ -71,13 +71,13 @@ export function Hero() {
 
           {/* Subheading */}
           {/* <FadeIn delay={0.3}>
-            <p className="text-xl md:text-2xl lg:text-3xl text-white/90 max-w-3xl mx-auto mb-4 font-medium">
+            <p className="text-xl md:text-2xl lg:text-3xl text-gray-800 dark:text-white/90 max-w-3xl mx-auto mb-4 font-medium">
               Ethiopian Businesses for Global Success
             </p>
           </FadeIn> */}
 
           <FadeIn delay={0.4}>
-            <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-12">
+            <p className="text-lg md:text-xl text-gray-700 dark:text-white/70 max-w-2xl mx-auto mb-12">
               We build world-class web apps, mobile solutions, ERP systems, and brands that help businesses compete globally
             </p>
           </FadeIn>
@@ -96,7 +96,7 @@ export function Hero() {
                 size="lg"
                 variant="outline"
                 onClick={() => scrollToSection('portfolio')}
-                className="px-6 py-3 h-auto bg-transparent text-white hover:bg-white/10 border-2 border-white/30 hover:border-primary/50 text-base font-medium backdrop-blur-sm transition-all"
+                className="px-6 py-3 h-auto bg-transparent text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-white/10 border-2 border-gray-300 dark:border-white/30 hover:border-primary/50 text-base font-medium backdrop-blur-sm transition-all"
               >
                 View Our Work
               </Button>
@@ -110,25 +110,25 @@ export function Hero() {
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">
                   <Counter value={15} suffix="+" />
                 </div>
-                <div className="text-white/70 font-medium text-sm md:text-base">Projects Delivered</div>
+                <div className="text-gray-600 dark:text-white/70 font-medium text-sm md:text-base">Projects Delivered</div>
               </div>
               <div className="text-center group">
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">
                   <Counter value={5} suffix="+" />
                 </div>
-                <div className="text-white/70 font-medium text-sm md:text-base">Countries Served</div>
+                <div className="text-gray-600 dark:text-white/70 font-medium text-sm md:text-base">Countries Served</div>
               </div>
               <div className="text-center group">
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">
                   <Counter value={100} suffix="%" />
                 </div>
-                <div className="text-white/70 font-medium text-sm md:text-base">Client Satisfaction</div>
+                <div className="text-gray-600 dark:text-white/70 font-medium text-sm md:text-base">Client Satisfaction</div>
               </div>
               <div className="text-center group">
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">
                   <Counter value={2} suffix="+" />
                 </div>
-                <div className="text-white/70 font-medium text-sm md:text-base">Years of Excellence</div>
+                <div className="text-gray-600 dark:text-white/70 font-medium text-sm md:text-base">Years of Excellence</div>
               </div>
             </div>
           </SlideIn>
@@ -137,7 +137,7 @@ export function Hero() {
           <FadeIn delay={0.8} className="mt-16">
             <button
               onClick={() => scrollToSection('about')}
-              className="flex flex-col items-center gap-2 text-white/50 hover:text-primary transition-colors group mx-auto"
+              className="flex flex-col items-center gap-2 text-gray-500 dark:text-white/50 hover:text-primary transition-colors group mx-auto"
               aria-label="Scroll to next section"
             >
               <span className="text-sm font-medium">Scroll to explore</span>

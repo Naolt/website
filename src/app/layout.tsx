@@ -3,6 +3,7 @@ import { Lexend } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 import { ConditionalLayout } from '@/components/ConditionalLayout'
+import { ThemeProvider } from '@/components/ThemeProvider'
 
 const GA_MEASUREMENT_ID = 'G-6N0WKJ0B2C'
 
@@ -113,7 +114,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${lexend.variable} font-sans antialiased bg-black`}>
+      <body className={`${lexend.variable} font-sans antialiased bg-white dark:bg-black transition-colors duration-300`}>
         {/* Google Analytics */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
@@ -127,7 +128,9 @@ export default function RootLayout({
             gtag('config', '${GA_MEASUREMENT_ID}');
           `}
         </Script>
-        <ConditionalLayout>{children}</ConditionalLayout>
+        <ThemeProvider>
+          <ConditionalLayout>{children}</ConditionalLayout>
+        </ThemeProvider>
       </body>
     </html>
   )

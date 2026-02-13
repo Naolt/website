@@ -64,21 +64,21 @@
   --aurora-gradient-start: oklch(0.95 0.25 125); /* Lime gradient start */
   --aurora-gradient-end: oklch(0.65 0.20 120);   /* Darker lime gradient end */
 
-  /* Base colors using Aurora brand */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  /* Base colors using Aurora brand - LIGHT MODE */
+  --background: oklch(1 0 0);                    /* White background */
+  --foreground: oklch(0.145 0 0);                /* Black text */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: var(--aurora-primary);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: var(--aurora-primary);              /* Keep bright lime for buttons/accents */
+  --primary-foreground: oklch(0.05 0 0);         /* Black text on lime background */
   --secondary: var(--aurora-secondary);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: var(--aurora-accent);
-  --accent-foreground: oklch(0.985 0 0);
+  --accent: var(--aurora-accent);                /* Keep bright lime for accents */
+  --accent-foreground: oklch(0.05 0 0);          /* Black text on lime accent */
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
