@@ -9,6 +9,7 @@ import { client } from '@/lib/sanity/client'
 import { siteSettingsQuery } from '@/lib/sanity/queries'
 import type { SiteSettings } from '@/types/sanity'
 import { FooterNavButton } from './FooterNavButton'
+import { useTheme } from '@/components/ThemeProvider'
 
 const navigation = {
   company: [
@@ -41,6 +42,7 @@ const defaultSettings: SiteSettings = {
 }
 
 export function Footer() {
+  const { theme } = useTheme()
   const [settings, setSettings] = useState<SiteSettings>(defaultSettings)
   const currentYear = new Date().getFullYear()
 
@@ -86,10 +88,10 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-gradient-to-b from-black via-[#0a0a0a] to-black relative overflow-hidden border-t border-white/10">
+    <footer className="bg-gradient-to-b from-white via-gray-50 to-white dark:from-black dark:via-[#0a0a0a] dark:to-black relative overflow-hidden border-t border-gray-200 dark:border-white/10">
       {/* Subtle dot matrix background */}
       <div
-        className="absolute inset-0 opacity-[0.05]"
+        className="absolute inset-0 opacity-[0.15] dark:opacity-[0.05]"
         style={{
           backgroundImage: 'radial-gradient(circle, rgba(191, 255, 0, 0.3) 1px, transparent 1px)',
           backgroundSize: '40px 40px'
@@ -108,15 +110,15 @@ export function Footer() {
             <div className="lg:col-span-1">
               <Link href="/" className="inline-block mb-4">
                 <Image
-                  src="/images/logo-dark.png"
+                  src={theme === 'dark' ? '/images/logo-dark.png' : '/images/logo-light.png'}
                   alt="Aurora Solutions"
                   width={600}
                   height={180}
-                  className="h-32 w-auto brightness-0 invert"
+                  className="h-32 w-auto"
                   priority
                 />
               </Link>
-              <p className="text-sm text-white/60 mb-4 leading-relaxed">
+              <p className="text-sm text-gray-600 dark:text-white/60 mb-4 leading-relaxed">
                 {settings.description || 'Empowering businesses through digital innovation. From Ethiopia to the world.'}
               </p>
               <div className="flex items-center gap-4">
@@ -126,7 +128,7 @@ export function Footer() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white/60 hover:text-primary transition-colors"
+                    className="text-gray-600 dark:text-white/60 hover:text-primary transition-colors"
                   >
                     <span className="sr-only">{item.name}</span>
                     <item.icon className="h-5 w-5" />
@@ -137,7 +139,7 @@ export function Footer() {
 
             {/* Company Links */}
             <div>
-              <h3 className="font-semibold text-white mb-4">Company</h3>
+              <h3 className="font-semibold text-black dark:text-white mb-4">Company</h3>
               <ul className="space-y-3">
                 {navigation.company.map((item) => (
                   <li key={item.name}>
@@ -149,7 +151,7 @@ export function Footer() {
 
             {/* Services Links */}
             <div>
-              <h3 className="font-semibold text-white mb-4">Services</h3>
+              <h3 className="font-semibold text-black dark:text-white mb-4">Services</h3>
               <ul className="space-y-3">
                 {navigation.services.map((item) => (
                   <li key={item.name}>
@@ -161,14 +163,14 @@ export function Footer() {
 
             {/* Contact Info */}
             <div>
-              <h3 className="font-semibold text-white mb-4">Get in Touch</h3>
+              <h3 className="font-semibold text-black dark:text-white mb-4">Get in Touch</h3>
               <ul className="space-y-3">
                 {settings.email && (
                   <li className="flex items-start gap-2">
                     <Mail className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                     <a
                       href={`mailto:${settings.email}`}
-                      className="text-sm text-white/60 hover:text-primary transition-colors break-all"
+                      className="text-sm text-gray-600 dark:text-white/60 hover:text-primary transition-colors break-all"
                     >
                       {settings.email}
                     </a>
@@ -177,7 +179,7 @@ export function Footer() {
                 {settings.phone && settings.phone.length > 0 && (
                   <li className="flex items-start gap-2">
                     <Phone className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                    <div className="text-sm text-white/60">
+                    <div className="text-sm text-gray-600 dark:text-white/60">
                       {settings.phone.map((phoneNumber) => (
                         <a
                           key={phoneNumber}
@@ -193,7 +195,7 @@ export function Footer() {
                 {settings.address && (
                   <li className="flex items-start gap-2">
                     <MapPin className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                    <span className="text-sm text-white/60">
+                    <span className="text-sm text-gray-600 dark:text-white/60">
                       {settings.address}
                     </span>
                   </li>
@@ -203,29 +205,29 @@ export function Footer() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="mt-12 pt-8 border-t border-white/10">
+          <div className="mt-12 pt-8 border-t border-gray-200 dark:border-white/10">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="flex flex-col md:flex-row items-center gap-4">
-                <p className="text-sm text-white/50 text-center md:text-left">
+                <p className="text-sm text-gray-500 dark:text-white/50 text-center md:text-left">
                   © {currentYear} Aurora Solutions. All rights reserved.
                 </p>
                 <div className="flex items-center gap-4 text-sm">
                   <Link
                     href="/privacy"
-                    className="text-white/50 hover:text-primary transition-colors"
+                    className="text-gray-500 dark:text-white/50 hover:text-primary transition-colors"
                   >
                     Privacy Policy
                   </Link>
-                  <span className="text-white/30">•</span>
+                  <span className="text-gray-300 dark:text-white/30">•</span>
                   <Link
                     href="/terms"
-                    className="text-white/50 hover:text-primary transition-colors"
+                    className="text-gray-500 dark:text-white/50 hover:text-primary transition-colors"
                   >
                     Terms of Service
                   </Link>
                 </div>
               </div>
-              <p className="text-sm text-white/50 text-center md:text-right">
+              <p className="text-sm text-gray-500 dark:text-white/50 text-center md:text-right">
                 Built with purpose, faith, and innovation. 🇪🇹
               </p>
             </div>

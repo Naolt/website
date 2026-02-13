@@ -28,10 +28,10 @@ export async function Portfolio() {
   )
 
   return (
-    <section id="portfolio" className="py-24 bg-gradient-to-b from-black via-[#0a0a0a] to-black relative overflow-hidden">
+    <section id="portfolio" className="py-24 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-black dark:via-[#0a0a0a] dark:to-black relative overflow-hidden">
       {/* Grid pattern background (matching Hero visibility) */}
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0 opacity-[0.3] dark:opacity-20"
         style={{
           backgroundImage: `
             linear-gradient(to right, rgba(191, 255, 0, 0.1) 1px, transparent 1px),
@@ -56,12 +56,12 @@ export async function Portfolio() {
         <div className="mt-16 grid md:grid-cols-2 gap-8">
           {projects.length === 0 ? (
             <div className="col-span-2 text-center py-12">
-              <p className="text-white/60">No projects to display yet. Add some in the Sanity Studio!</p>
+              <p className="text-gray-500 dark:text-white/60">No projects to display yet. Add some in the Sanity Studio!</p>
             </div>
           ) : (
             projects.map((project, index) => (
               <FadeIn key={project._id} delay={index * 0.1}>
-                <div className="group bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-primary/50 overflow-hidden transition-all cursor-pointer">
+                <div className="group bg-gray-100 dark:bg-white/5 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-white/10 hover:border-primary/50 overflow-hidden transition-all cursor-pointer">
                   {/* Project Image */}
                   <div className="relative h-64 bg-gradient-to-br from-primary/10 to-primary/5 overflow-hidden">
                     {project.featuredImage?.asset?.url ? (
@@ -83,13 +83,13 @@ export async function Portfolio() {
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-3">
                       <div>
-                        <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">
+                        <span className="inline-block px-2 py-0.5 text-xs font-semibold text-primary uppercase tracking-wider mb-2 bg-gray-900 dark:bg-transparent rounded">
                           {categoryLabels[project.category] || project.category}
-                        </p>
-                        <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">
+                        </span>
+                        <h3 className="text-xl font-bold text-black dark:text-white group-hover:text-primary transition-colors">
                           {project.title}
                         </h3>
-                        <p className="text-xs text-white/50 mt-1">{project.client}</p>
+                        <p className="text-xs text-gray-500 dark:text-white/50 mt-1">{project.client}</p>
                       </div>
                       {project.projectUrl && (
                         <a
@@ -99,24 +99,24 @@ export async function Portfolio() {
                           className="flex-shrink-0"
                           aria-label="View project"
                         >
-                          <ExternalLink className="w-5 h-5 text-white/40 group-hover:text-primary transition-colors" />
+                          <ExternalLink className="w-5 h-5 text-gray-400 dark:text-white/40 group-hover:text-primary transition-colors" />
                         </a>
                       )}
                     </div>
 
-                    <p className="text-white/70 text-sm mb-4">
+                    <p className="text-gray-600 dark:text-white/70 text-sm mb-4">
                       {project.shortDescription}
                     </p>
 
                     {/* Services */}
                     {project.services && project.services.length > 0 && (
                       <div className="mb-3">
-                        <p className="text-xs text-white/50 mb-2">Services:</p>
+                        <p className="text-xs text-gray-500 dark:text-white/50 mb-2">Services:</p>
                         <div className="flex flex-wrap gap-2">
                           {project.services.map((service) => (
                             <span
                               key={service}
-                              className="px-3 py-1 text-xs bg-primary/10 rounded-full text-primary border border-primary/20"
+                              className="px-3 py-1 text-xs bg-gray-900 dark:bg-primary/10 rounded-full text-primary border border-gray-900 dark:border-primary/20"
                             >
                               {categoryLabels[service] || service}
                             </span>
@@ -131,7 +131,7 @@ export async function Portfolio() {
                         {project.technologies.map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1 text-xs bg-white/10 rounded-full text-white/60 border border-white/10"
+                            className="px-3 py-1 text-xs bg-gray-200 dark:bg-white/10 rounded-full text-gray-600 dark:text-white/60 border border-gray-300 dark:border-white/10"
                           >
                             {tech}
                           </span>

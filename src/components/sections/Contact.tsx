@@ -69,10 +69,10 @@ export function Contact() {
   const serviceValue = watch('service')
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-b from-black via-[#0a0a0a] to-black relative overflow-hidden">
+    <section id="contact" className="py-24 bg-gradient-to-b from-white via-gray-50 to-white dark:from-black dark:via-[#0a0a0a] dark:to-black relative overflow-hidden">
       {/* Diagonal lines background (cross-hatch pattern from Services) */}
       <div
-        className="absolute inset-0 opacity-[0.5]"
+        className="absolute inset-0 opacity-[0.3] dark:opacity-[0.5]"
         style={{
           backgroundImage: `
             linear-gradient(45deg, rgba(191, 255, 0, 0.6) 1px, transparent 1px),
@@ -112,14 +112,14 @@ export function Contact() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name" className="text-white">
+                  <Label htmlFor="name" className="text-black dark:text-white">
                     Name *
                   </Label>
                   <Input
                     {...register('name')}
                     type="text"
                     id="name"
-                    className="bg-white/5 border-white/10 text-white placeholder:text-white/40 focus-visible:border-primary focus-visible:ring-primary/20 h-11"
+                    className="bg-gray-100 dark:bg-white/5 border-gray-200 dark:border-white/10 text-black dark:text-white placeholder:text-gray-500 dark:placeholder:text-white/40 focus-visible:border-primary focus-visible:ring-primary/20 h-11"
                     placeholder="Your name"
                   />
                   {errors.name && (
@@ -128,14 +128,14 @@ export function Contact() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-white">
+                  <Label htmlFor="email" className="text-black dark:text-white">
                     Email *
                   </Label>
                   <Input
                     {...register('email')}
                     type="email"
                     id="email"
-                    className="bg-white/5 border-white/10 text-white placeholder:text-white/40 focus-visible:border-primary focus-visible:ring-primary/20 h-11"
+                    className="bg-gray-100 dark:bg-white/5 border-gray-200 dark:border-white/10 text-black dark:text-white placeholder:text-gray-500 dark:placeholder:text-white/40 focus-visible:border-primary focus-visible:ring-primary/20 h-11"
                     placeholder="your@email.com"
                   />
                   {errors.email && (
@@ -146,63 +146,63 @@ export function Contact() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="phone" className="text-white">
+                  <Label htmlFor="phone" className="text-black dark:text-white">
                     Phone
                   </Label>
                   <Input
                     {...register('phone')}
                     type="tel"
                     id="phone"
-                    className="bg-white/5 border-white/10 text-white placeholder:text-white/40 focus-visible:border-primary focus-visible:ring-primary/20 h-11"
+                    className="bg-gray-100 dark:bg-white/5 border-gray-200 dark:border-white/10 text-black dark:text-white placeholder:text-gray-500 dark:placeholder:text-white/40 focus-visible:border-primary focus-visible:ring-primary/20 h-11"
                     placeholder="+251 9 12345678"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="company" className="text-white">
+                  <Label htmlFor="company" className="text-black dark:text-white">
                     Company
                   </Label>
                   <Input
                     {...register('company')}
                     type="text"
                     id="company"
-                    className="bg-white/5 border-white/10 text-white placeholder:text-white/40 focus-visible:border-primary focus-visible:ring-primary/20 h-11"
+                    className="bg-gray-100 dark:bg-white/5 border-gray-200 dark:border-white/10 text-black dark:text-white placeholder:text-gray-500 dark:placeholder:text-white/40 focus-visible:border-primary focus-visible:ring-primary/20 h-11"
                     placeholder="Your company"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="service" className="text-white">
+                <Label htmlFor="service" className="text-black dark:text-white">
                   Service Interest
                 </Label>
                 <Select
                   value={serviceValue || ''}
                   onValueChange={(value) => setValue('service', value)}
                 >
-                  <SelectTrigger className="w-full bg-white/5 border-white/10 text-white data-[placeholder]:text-white/40 focus-visible:border-primary focus-visible:ring-primary/20 h-11">
+                  <SelectTrigger className="w-full bg-gray-100 dark:bg-white/5 border-gray-200 dark:border-white/10 text-black dark:text-white data-[placeholder]:text-gray-500 dark:data-[placeholder]:text-white/40 focus-visible:border-primary focus-visible:ring-primary/20 h-11">
                     <SelectValue placeholder="Select a service" />
                   </SelectTrigger>
-                  <SelectContent className="bg-black border-white/10">
-                    <SelectItem value="web" className="text-white focus:bg-white/10 focus:text-white">
+                  <SelectContent className="bg-white dark:bg-black border-gray-200 dark:border-white/10">
+                    <SelectItem value="web" className="text-black dark:text-white focus:bg-gray-100 dark:focus:bg-white/10">
                       Web Development
                     </SelectItem>
-                    <SelectItem value="mobile" className="text-white focus:bg-white/10 focus:text-white">
+                    <SelectItem value="mobile" className="text-black dark:text-white focus:bg-gray-100 dark:focus:bg-white/10">
                       Mobile App Development
                     </SelectItem>
-                    <SelectItem value="erp" className="text-white focus:bg-white/10 focus:text-white">
+                    <SelectItem value="erp" className="text-black dark:text-white focus:bg-gray-100 dark:focus:bg-white/10">
                       ERP / CRM Systems
                     </SelectItem>
-                    <SelectItem value="branding" className="text-white focus:bg-white/10 focus:text-white">
+                    <SelectItem value="branding" className="text-black dark:text-white focus:bg-gray-100 dark:focus:bg-white/10">
                       Branding & Strategy
                     </SelectItem>
-                    <SelectItem value="marketing" className="text-white focus:bg-white/10 focus:text-white">
+                    <SelectItem value="marketing" className="text-black dark:text-white focus:bg-gray-100 dark:focus:bg-white/10">
                       Digital Marketing
                     </SelectItem>
-                    <SelectItem value="design" className="text-white focus:bg-white/10 focus:text-white">
+                    <SelectItem value="design" className="text-black dark:text-white focus:bg-gray-100 dark:focus:bg-white/10">
                       Design & Creative
                     </SelectItem>
-                    <SelectItem value="video" className="text-white focus:bg-white/10 focus:text-white">
+                    <SelectItem value="video" className="text-black dark:text-white focus:bg-gray-100 dark:focus:bg-white/10">
                       Video Production
                     </SelectItem>
                   </SelectContent>
@@ -210,14 +210,14 @@ export function Contact() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message" className="text-white">
+                <Label htmlFor="message" className="text-black dark:text-white">
                   Message *
                 </Label>
                 <Textarea
                   {...register('message')}
                   id="message"
                   rows={6}
-                  className="bg-white/5 border-white/10 text-white placeholder:text-white/40 focus-visible:border-primary focus-visible:ring-primary/20 resize-none min-h-[150px]"
+                  className="bg-gray-100 dark:bg-white/5 border-gray-200 dark:border-white/10 text-black dark:text-white placeholder:text-gray-500 dark:placeholder:text-white/40 focus-visible:border-primary focus-visible:ring-primary/20 resize-none min-h-[150px]"
                   placeholder="Tell us about your project..."
                 />
                 {errors.message && (
@@ -247,8 +247,8 @@ export function Contact() {
 
           {/* Contact Information */}
           <SlideIn direction="right" delay={0.4}>
-            <div className="bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-white/10 h-fit">
-              <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
+            <div className="bg-gray-100 dark:bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-gray-200 dark:border-white/10 h-fit">
+              <h3 className="text-2xl font-bold text-black dark:text-white mb-6">Contact Information</h3>
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
@@ -256,8 +256,8 @@ export function Contact() {
                     <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm text-white/60 mb-1">Email</p>
-                    <a href="mailto:AuroraSolutions11@gmail.com" className="text-white hover:text-primary transition-colors">
+                    <p className="text-sm text-gray-500 dark:text-white/60 mb-1">Email</p>
+                    <a href="mailto:AuroraSolutions11@gmail.com" className="text-black dark:text-white hover:text-primary transition-colors">
                       AuroraSolutions11@gmail.com
                     </a>
                   </div>
@@ -268,11 +268,11 @@ export function Contact() {
                     <Phone className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm text-white/60 mb-1">Phone</p>
-                    <a href="tel:+251910940419" className="text-white hover:text-primary transition-colors block">
+                    <p className="text-sm text-gray-500 dark:text-white/60 mb-1">Phone</p>
+                    <a href="tel:+251910940419" className="text-black dark:text-white hover:text-primary transition-colors block">
                       +251 9 10940419
                     </a>
-                    <a href="tel:+251910168641" className="text-white hover:text-primary transition-colors block">
+                    <a href="tel:+251910168641" className="text-black dark:text-white hover:text-primary transition-colors block">
                       +251 9 10168641
                     </a>
                   </div>
@@ -283,8 +283,8 @@ export function Contact() {
                     <MapPin className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm text-white/60 mb-1">Location</p>
-                    <p className="text-white">Addis Ababa, Ethiopia 🇪🇹</p>
+                    <p className="text-sm text-gray-500 dark:text-white/60 mb-1">Location</p>
+                    <p className="text-black dark:text-white">Addis Ababa, Ethiopia 🇪🇹</p>
                   </div>
                 </div>
               </div>

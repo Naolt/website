@@ -7,10 +7,10 @@ import { servicesData } from '@/lib/services-data'
 
 export function Services() {
   return (
-    <section id="services" className="py-24 bg-gradient-to-b from-black via-[#0a0a0a] to-black relative overflow-hidden">
+    <section id="services" className="py-24 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-black dark:via-[#0a0a0a] dark:to-black relative overflow-hidden">
       {/* Diagonal lines background */}
       <div
-        className="absolute inset-0 opacity-[0.5]"
+        className="absolute inset-0 opacity-[0.3] dark:opacity-[0.5]"
         style={{
           backgroundImage: `
             linear-gradient(45deg, rgba(191, 255, 0, 0.6) 1px, transparent 1px),
@@ -37,7 +37,7 @@ export function Services() {
             <FadeIn key={service.slug} delay={index * 0.1}>
               <Link
                 href={`/services/${service.slug}`}
-                className="group block p-8 h-full bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all"
+                className="group block p-8 h-full bg-gray-100 dark:bg-white/5 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-white/10 hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-white/10 transition-all"
               >
                 <div className="flex flex-col h-full">
                   {/* Icon */}
@@ -46,19 +46,19 @@ export function Services() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-primary transition-colors">
+                  <h3 className="text-2xl font-bold mb-3 text-black dark:text-white group-hover:text-primary transition-colors">
                     {service.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-white/70 mb-6 flex-grow">
+                  <p className="text-gray-600 dark:text-white/70 mb-6 flex-grow">
                     {service.shortDescription}
                   </p>
 
                   {/* Features */}
                   <ul className="space-y-2 mb-6">
                     {service.features.slice(0, 3).map((feature) => (
-                      <li key={feature} className="flex items-center text-sm text-white/60">
+                      <li key={feature} className="flex items-center text-sm text-gray-500 dark:text-white/60">
                         <ArrowRight className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
                         {feature}
                       </li>
@@ -78,20 +78,20 @@ export function Services() {
 
         {/* Aurora Video Production Highlight */}
         <FadeIn delay={0.8}>
-          <div className="mt-16 bg-white/5 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-white/10 hover:border-primary/30 transition-all">
+          <div className="mt-16 bg-gray-100 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-gray-200 dark:border-white/10 hover:border-primary/30 transition-all">
             <div className="max-w-3xl mx-auto text-center">
               <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Video className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">Aurora Video Production</h3>
-              <p className="text-white/70 text-lg mb-6">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-black dark:text-white">Aurora Video Production</h3>
+              <p className="text-gray-600 dark:text-white/70 text-lg mb-6">
                 Cinematic storytelling that makes brands unforgettable.
               </p>
               <div className="flex flex-wrap justify-center gap-4 text-sm">
-                <span className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white/80">Video Editing</span>
-                <span className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white/80">Cinematography</span>
-                <span className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white/80">Motion Graphics</span>
-                <span className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white/80">Event Coverage</span>
+                <span className="px-4 py-2 bg-gray-200 dark:bg-white/10 backdrop-blur-sm rounded-full border border-gray-300 dark:border-white/20 text-gray-700 dark:text-white/80">Video Editing</span>
+                <span className="px-4 py-2 bg-gray-200 dark:bg-white/10 backdrop-blur-sm rounded-full border border-gray-300 dark:border-white/20 text-gray-700 dark:text-white/80">Cinematography</span>
+                <span className="px-4 py-2 bg-gray-200 dark:bg-white/10 backdrop-blur-sm rounded-full border border-gray-300 dark:border-white/20 text-gray-700 dark:text-white/80">Motion Graphics</span>
+                <span className="px-4 py-2 bg-gray-200 dark:bg-white/10 backdrop-blur-sm rounded-full border border-gray-300 dark:border-white/20 text-gray-700 dark:text-white/80">Event Coverage</span>
               </div>
             </div>
           </div>

@@ -29,25 +29,26 @@ export function Hero() {
     >
       {/* Modern grid background with lime accents */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Grid pattern */}
+        {/* Grid pattern - darker for light mode */}
         <div
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(to right, rgba(191, 255, 0, 0.1) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(191, 255, 0, 0.1) 1px, transparent 1px)
+              linear-gradient(to right, rgba(191, 255, 0, 0.15) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(191, 255, 0, 0.15) 1px, transparent 1px)
             `,
-            backgroundSize: '80px 80px'
+            backgroundSize: '80px 80px',
+            opacity: 0.3
           }}
         />
 
         {/* Gradient overlays for depth */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/5 via-transparent to-transparent" />
-        <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-primary/10 via-transparent to-transparent blur-3xl" />
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/5 dark:from-primary/5 via-transparent to-transparent" />
+        <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-primary/10 dark:from-primary/10 via-transparent to-transparent blur-3xl" />
 
         {/* Subtle glow spots */}
-        <div className="absolute top-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-20 left-10 w-96 h-96 bg-primary/5 dark:bg-primary/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 dark:bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
       <Container className="relative z-10">

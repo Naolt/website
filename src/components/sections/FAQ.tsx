@@ -41,10 +41,10 @@ export function FAQ() {
   }
 
   return (
-    <section className="py-24 bg-gradient-to-b from-black via-[#0a0a0a] to-black relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-black dark:via-[#0a0a0a] dark:to-black relative overflow-hidden">
       {/* Grid pattern background */}
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0 opacity-[0.3] dark:opacity-20"
         style={{
           backgroundImage: `
             linear-gradient(to right, rgba(191, 255, 0, 0.1) 1px, transparent 1px),
@@ -72,11 +72,11 @@ export function FAQ() {
               <div className="mb-4">
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10 hover:border-primary/50 transition-all text-left group"
+                  className="w-full bg-gray-100 dark:bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-gray-200 dark:border-white/10 hover:border-primary/50 transition-all text-left group"
                   aria-expanded={openIndex === index}
                 >
                   <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-lg font-semibold text-white group-hover:text-primary transition-colors pr-4">
+                    <h3 className="text-lg font-semibold text-black dark:text-white group-hover:text-primary transition-colors pr-4">
                       {faq.question}
                     </h3>
                     <ChevronDown
@@ -91,7 +91,7 @@ export function FAQ() {
                       openIndex === index ? 'max-h-96 mt-4' : 'max-h-0'
                     }`}
                   >
-                    <p className="text-white/70 leading-relaxed">
+                    <p className="text-gray-600 dark:text-white/70 leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
@@ -104,7 +104,7 @@ export function FAQ() {
         {/* CTA */}
         <FadeIn delay={0.6}>
           <div className="mt-12 text-center">
-            <p className="text-white/60 mb-4">
+            <p className="text-gray-600 dark:text-white/60 mb-4">
               Still have questions?
             </p>
             <a
