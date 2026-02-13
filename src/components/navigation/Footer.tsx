@@ -205,9 +205,26 @@ export function Footer() {
           {/* Bottom Bar */}
           <div className="mt-12 pt-8 border-t border-white/10">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-sm text-white/50 text-center md:text-left">
-                © {currentYear} Aurora Solutions. All rights reserved.
-              </p>
+              <div className="flex flex-col md:flex-row items-center gap-4">
+                <p className="text-sm text-white/50 text-center md:text-left">
+                  © {currentYear} Aurora Solutions. All rights reserved.
+                </p>
+                <div className="flex items-center gap-4 text-sm">
+                  <Link
+                    href="/privacy"
+                    className="text-white/50 hover:text-primary transition-colors"
+                  >
+                    Privacy Policy
+                  </Link>
+                  <span className="text-white/30">•</span>
+                  <Link
+                    href="/terms"
+                    className="text-white/50 hover:text-primary transition-colors"
+                  >
+                    Terms of Service
+                  </Link>
+                </div>
+              </div>
               <p className="text-sm text-white/50 text-center md:text-right">
                 Built with purpose, faith, and innovation. 🇪🇹
               </p>

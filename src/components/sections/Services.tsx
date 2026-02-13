@@ -1,69 +1,9 @@
+import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
-import { Card } from '@/components/ui/card'
 import { FadeIn } from '@/components/animations/FadeIn'
-import {
-  Code2,
-  Smartphone,
-  Database,
-  Palette,
-  TrendingUp,
-  Sparkles,
-  Video,
-  ArrowRight,
-} from 'lucide-react'
-
-const services = [
-  {
-    icon: Code2,
-    title: 'Web Development',
-    description:
-      'Fast, modern websites and e-commerce platforms that convert visitors into customers.',
-    features: ['React & Next.js', 'E-commerce Solutions', 'Progressive Web Apps'],
-  },
-  {
-    icon: Smartphone,
-    title: 'Mobile App Development',
-    description:
-      'Native and cross-platform apps with beautiful UI and secure, optimized code.',
-    features: ['iOS & Android', 'Flutter & React Native', 'App Store Deployment'],
-  },
-  {
-    icon: Database,
-    title: 'ERP / CRM Systems',
-    description:
-      'Custom business solutions that automate workflows and provide real-time insights.',
-    features: ['Inventory Management', 'Customer Relations', 'Analytics Dashboard'],
-  },
-  {
-    icon: Palette,
-    title: 'Branding & Strategy',
-    description:
-      'Memorable brands that connect with your audience and stand out in the market.',
-    features: ['Logo & Identity', 'Brand Guidelines', 'Visual Strategy'],
-  },
-  {
-    icon: TrendingUp,
-    title: 'Digital Marketing',
-    description:
-      'Data-driven campaigns that grow your visibility, engagement, and conversions.',
-    features: ['Social Media Management', 'Content Strategy', 'SEO & Analytics'],
-  },
-  {
-    icon: Sparkles,
-    title: 'Design & Creative',
-    description:
-      'High-quality visuals and motion design that elevate your brand presence.',
-    features: ['Graphic Design', 'Social Media Content', 'Motion Design'],
-  },
-  {
-    icon: Video,
-    title: 'Video Production',
-    description:
-      'Cinematic video content through Aurora Video Production that brings your message to life.',
-    features: ['Video Editing', 'Brand Stories', 'Event Coverage'],
-  },
-]
+import { Video, ArrowRight } from 'lucide-react'
+import { servicesData } from '@/lib/services-data'
 
 export function Services() {
   return (
@@ -93,9 +33,12 @@ export function Services() {
         />
 
         <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <FadeIn key={service.title} delay={index * 0.1}>
-              <div className="group p-8 h-full bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all cursor-pointer">
+          {servicesData.map((service, index) => (
+            <FadeIn key={service.slug} delay={index * 0.1}>
+              <Link
+                href={`/services/${service.slug}`}
+                className="group block p-8 h-full bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all"
+              >
                 <div className="flex flex-col h-full">
                   {/* Icon */}
                   <div className="w-14 h-14 bg-primary/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/30 transition-colors">
@@ -109,12 +52,12 @@ export function Services() {
 
                   {/* Description */}
                   <p className="text-white/70 mb-6 flex-grow">
-                    {service.description}
+                    {service.shortDescription}
                   </p>
 
                   {/* Features */}
                   <ul className="space-y-2 mb-6">
-                    {service.features.map((feature) => (
+                    {service.features.slice(0, 3).map((feature) => (
                       <li key={feature} className="flex items-center text-sm text-white/60">
                         <ArrowRight className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
                         {feature}
@@ -128,7 +71,7 @@ export function Services() {
                     <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
-              </div>
+              </Link>
             </FadeIn>
           ))}
         </div>
