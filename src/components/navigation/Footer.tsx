@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Mail, Phone, MapPin, Linkedin, Facebook, Twitter } from 'lucide-react'
+import { Mail, Phone, MapPin, Linkedin, Facebook, Twitter, Camera, Video, Send } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { client } from '@/lib/sanity/client'
 import { siteSettingsQuery } from '@/lib/sanity/queries'
@@ -63,13 +63,22 @@ export async function Footer() {
     socialMedia.push({ name: 'LinkedIn', href: settings.socialMedia.linkedin, icon: Linkedin })
   }
   if (settings.socialMedia?.instagram) {
-    socialMedia.push({ name: 'Instagram', href: settings.socialMedia.instagram, icon: Facebook })
+    socialMedia.push({ name: 'Instagram', href: settings.socialMedia.instagram, icon: Camera })
   }
   if (settings.socialMedia?.facebook) {
     socialMedia.push({ name: 'Facebook', href: settings.socialMedia.facebook, icon: Facebook })
   }
   if (settings.socialMedia?.twitter) {
     socialMedia.push({ name: 'Twitter', href: settings.socialMedia.twitter, icon: Twitter })
+  }
+  if (settings.socialMedia?.tiktok) {
+    socialMedia.push({ name: 'TikTok', href: settings.socialMedia.tiktok, icon: Video })
+  }
+  if (settings.socialMedia?.threads) {
+    socialMedia.push({ name: 'Threads', href: settings.socialMedia.threads, icon: Send })
+  }
+  if (settings.socialMedia?.telegram) {
+    socialMedia.push({ name: 'Telegram', href: settings.socialMedia.telegram, icon: Send })
   }
 
   return (
