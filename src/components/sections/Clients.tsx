@@ -72,7 +72,7 @@ export async function Clients() {
                           </div>
                         ) : (
                           <div className="text-center">
-                            <div className="text-xl font-bold tracking-tight text-gray-700 dark:text-white/70 group-hover:text-primary transition-colors uppercase" style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif', letterSpacing: '0.05em' }}>
+                            <div className="text-xl font-bold tracking-tight text-gray-700 dark:text-white/70 dark:group-hover:text-primary transition-colors uppercase" style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif', letterSpacing: '0.05em' }}>
                               {clientItem.name}
                             </div>
                           </div>
@@ -91,9 +91,9 @@ export async function Clients() {
           <div className="mt-12 text-center">
             <p className="text-gray-600 dark:text-white/60 text-sm">
               Trusted by organizations across{' '}
-              <span className="text-primary font-semibold">5+ countries</span>
+              <span className="text-gray-900 dark:text-primary font-semibold">5+ countries</span>
               {' '}and{' '}
-              <span className="text-primary font-semibold">3 continents</span>
+              <span className="text-gray-900 dark:text-primary font-semibold">3 continents</span>
             </p>
           </div>
         </FadeIn>

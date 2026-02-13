@@ -86,7 +86,7 @@ export async function Portfolio() {
                         <span className="inline-block px-2 py-0.5 text-xs font-semibold text-primary uppercase tracking-wider mb-2 bg-gray-900 dark:bg-transparent rounded">
                           {categoryLabels[project.category] || project.category}
                         </span>
-                        <h3 className="text-xl font-bold text-black dark:text-white group-hover:text-primary transition-colors">
+                        <h3 className="text-xl font-bold text-black dark:text-white dark:group-hover:text-primary transition-colors">
                           {project.title}
                         </h3>
                         <p className="text-xs text-gray-500 dark:text-white/50 mt-1">{project.client}</p>
@@ -99,7 +99,7 @@ export async function Portfolio() {
                           className="flex-shrink-0"
                           aria-label="View project"
                         >
-                          <ExternalLink className="w-5 h-5 text-gray-400 dark:text-white/40 group-hover:text-primary transition-colors" />
+                          <ExternalLink className="w-5 h-5 text-gray-400 dark:text-white/40 group-hover:text-gray-600 dark:group-hover:text-primary transition-colors" />
                         </a>
                       )}
                     </div>

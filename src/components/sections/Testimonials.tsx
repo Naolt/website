@@ -47,12 +47,12 @@ export async function Testimonials() {
               <FadeIn key={testimonial._id} delay={index * 0.1}>
                 <div className="bg-gray-100 dark:bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-gray-200 dark:border-white/10 hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-white/10 transition-all h-full flex flex-col">
                   {/* Quote icon */}
-                  <Quote className="w-10 h-10 text-primary/30 mb-4" />
+                  <Quote className="w-10 h-10 text-gray-300 dark:text-primary/30 mb-4" />
 
                   {/* Rating */}
                   <div className="flex gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                      <Star key={i} className="w-4 h-4 fill-gray-700 text-gray-700 dark:fill-primary dark:text-primary" />
                     ))}
                   </div>
 

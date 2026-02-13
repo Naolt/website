@@ -253,11 +253,11 @@ export function Contact() {
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-primary" />
+                    <Mail className="w-6 h-6 text-gray-700 dark:text-primary" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 dark:text-white/60 mb-1">Email</p>
-                    <a href="mailto:AuroraSolutions11@gmail.com" className="text-black dark:text-white hover:text-primary transition-colors">
+                    <a href="mailto:AuroraSolutions11@gmail.com" className="text-black dark:text-white hover:underline transition-colors">
                       AuroraSolutions11@gmail.com
                     </a>
                   </div>
@@ -265,14 +265,14 @@ export function Contact() {
 
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-primary" />
+                    <Phone className="w-6 h-6 text-gray-700 dark:text-primary" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 dark:text-white/60 mb-1">Phone</p>
-                    <a href="tel:+251910940419" className="text-black dark:text-white hover:text-primary transition-colors block">
+                    <a href="tel:+251910940419" className="text-black dark:text-white hover:underline transition-colors block">
                       +251 9 10940419
                     </a>
-                    <a href="tel:+251910168641" className="text-black dark:text-white hover:text-primary transition-colors block">
+                    <a href="tel:+251910168641" className="text-black dark:text-white hover:underline transition-colors block">
                       +251 9 10168641
                     </a>
                   </div>
@@ -280,7 +280,7 @@ export function Contact() {
 
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-primary" />
+                    <MapPin className="w-6 h-6 text-gray-700 dark:text-primary" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 dark:text-white/60 mb-1">Location</p>

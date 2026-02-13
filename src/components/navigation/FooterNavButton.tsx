@@ -25,7 +25,7 @@ export function FooterNavButton({ href, children }: FooterNavButtonProps) {
   return (
     <button
       onClick={() => scrollToSection(href)}
-      className="text-sm text-gray-600 dark:text-white/60 hover:text-primary transition-colors"
+      className="text-sm text-gray-600 dark:text-white/60 hover:text-black hover:bg-primary/20 dark:hover:text-primary dark:hover:bg-transparent transition-all px-2 py-1 rounded -mx-2"
     >
       {children}
     </button>

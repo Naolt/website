@@ -119,10 +119,10 @@ export function Navbar() {
                   key={item.name}
                   onClick={() => handleNavClick(item.href)}
                   className={cn(
-                    'text-sm font-medium transition-colors',
+                    'text-sm font-medium transition-all px-3 py-1.5 rounded-md',
                     isActive
-                      ? 'text-primary'
-                      : 'text-black dark:text-white hover:text-primary'
+                      ? 'text-black bg-primary/20 dark:text-primary dark:bg-primary/10'
+                      : 'text-black dark:text-white hover:bg-primary/20 dark:hover:bg-primary/10 dark:hover:text-primary'
                   )}
                 >
                   {item.name}
@@ -133,7 +133,7 @@ export function Navbar() {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg text-black dark:text-white hover:text-primary hover:bg-gray-100 dark:hover:bg-white/10 transition-all"
+              className="p-2 rounded-lg text-black dark:text-white hover:bg-gray-200 dark:hover:bg-white/10 hover:text-black dark:hover:text-primary transition-all"
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? (
@@ -155,7 +155,7 @@ export function Navbar() {
           <div className="lg:hidden flex items-center gap-2">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg text-black dark:text-white hover:text-primary hover:bg-gray-100 dark:hover:bg-white/10 transition-all"
+              className="p-2 rounded-lg text-black dark:text-white hover:bg-gray-200 dark:hover:bg-white/10 hover:text-black dark:hover:text-primary transition-all"
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? (

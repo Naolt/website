@@ -76,11 +76,11 @@ export function FAQ() {
                   aria-expanded={openIndex === index}
                 >
                   <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-lg font-semibold text-black dark:text-white group-hover:text-primary transition-colors pr-4">
+                    <h3 className="text-lg font-semibold text-black dark:text-white dark:group-hover:text-primary transition-colors pr-4">
                       {faq.question}
                     </h3>
                     <ChevronDown
-                      className={`w-5 h-5 text-primary flex-shrink-0 transition-transform duration-300 ${
+                      className={`w-5 h-5 text-gray-700 dark:text-primary flex-shrink-0 transition-transform duration-300 ${
                         openIndex === index ? 'rotate-180' : ''
                       }`}
                     />

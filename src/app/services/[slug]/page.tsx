@@ -56,10 +56,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   ]
 
   return (
-    <div className="min-h-screen bg-black pt-24 pb-16">
+    <div className="min-h-screen bg-white dark:bg-black pt-24 pb-16">
       {/* Grid pattern background */}
       <div
-        className="fixed inset-0 opacity-20 pointer-events-none"
+        className="fixed inset-0 opacity-[0.3] dark:opacity-20 pointer-events-none"
         style={{
           backgroundImage: `
             linear-gradient(to right, rgba(191, 255, 0, 0.1) 1px, transparent 1px),
@@ -83,7 +83,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         <FadeIn>
           <Link
             href="/services"
-            className="inline-flex items-center text-white/60 hover:text-primary transition-colors mb-8 group"
+            className="inline-flex items-center text-gray-600 dark:text-white/60 hover:text-black dark:hover:text-primary transition-colors mb-8 group"
           >
             <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
             Back to Services
@@ -95,16 +95,16 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           <FadeIn delay={0.1}>
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center">
-                <service.icon className="w-8 h-8 text-primary" />
+                <service.icon className="w-8 h-8 text-gray-700 dark:text-primary" />
               </div>
               <div>
-                <h1 className="text-4xl md:text-6xl font-bold text-white">{service.title}</h1>
+                <h1 className="text-4xl md:text-6xl font-bold text-black dark:text-white">{service.title}</h1>
               </div>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <p className="text-xl text-white/70 leading-relaxed max-w-4xl">
+            <p className="text-xl text-gray-600 dark:text-white/70 leading-relaxed max-w-4xl">
               {service.fullDescription}
             </p>
           </FadeIn>
@@ -115,13 +115,13 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           <div className="lg:col-span-2 space-y-12">
             {/* Features */}
             <FadeIn delay={0.3}>
-              <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-8">
-                <h2 className="text-2xl font-bold text-white mb-6">What We Offer</h2>
+              <div className="bg-gray-100 dark:bg-white/5 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-white/10 p-8">
+                <h2 className="text-2xl font-bold text-black dark:text-white mb-6">What We Offer</h2>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {service.features.map((feature) => (
                     <div key={feature} className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-white/80">{feature}</span>
+                      <CheckCircle className="w-5 h-5 text-gray-700 dark:text-primary mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700 dark:text-white/80">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -130,13 +130,13 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
             {/* Benefits */}
             <FadeIn delay={0.4}>
-              <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-8">
-                <h2 className="text-2xl font-bold text-white mb-6">Key Benefits</h2>
+              <div className="bg-gray-100 dark:bg-white/5 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-white/10 p-8">
+                <h2 className="text-2xl font-bold text-black dark:text-white mb-6">Key Benefits</h2>
                 <ul className="space-y-3">
                   {service.benefits.map((benefit) => (
                     <li key={benefit} className="flex items-start">
-                      <ArrowRight className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-white/80">{benefit}</span>
+                      <ArrowRight className="w-5 h-5 text-gray-700 dark:text-primary mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700 dark:text-white/80">{benefit}</span>
                     </li>
                   ))}
                 </ul>
@@ -145,19 +145,19 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
             {/* Process */}
             <FadeIn delay={0.5}>
-              <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-8">
-                <h2 className="text-2xl font-bold text-white mb-6">Our Process</h2>
+              <div className="bg-gray-100 dark:bg-white/5 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-white/10 p-8">
+                <h2 className="text-2xl font-bold text-black dark:text-white mb-6">Our Process</h2>
                 <div className="space-y-6">
                   {service.process.map((step, index) => (
                     <div key={step.step} className="flex gap-4">
                       <div className="flex-shrink-0">
                         <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
-                          <span className="text-primary font-bold">{index + 1}</span>
+                          <span className="text-gray-900 dark:text-primary font-bold">{index + 1}</span>
                         </div>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-white mb-1">{step.step}</h3>
-                        <p className="text-white/70">{step.description}</p>
+                        <h3 className="text-lg font-semibold text-black dark:text-white mb-1">{step.step}</h3>
+                        <p className="text-gray-600 dark:text-white/70">{step.description}</p>
                       </div>
                     </div>
                   ))}
@@ -168,13 +168,13 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             {/* Technologies (if available) */}
             {service.technologies && service.technologies.length > 0 && (
               <FadeIn delay={0.6}>
-                <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-8">
-                  <h2 className="text-2xl font-bold text-white mb-6">Technologies We Use</h2>
+                <div className="bg-gray-100 dark:bg-white/5 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-white/10 p-8">
+                  <h2 className="text-2xl font-bold text-black dark:text-white mb-6">Technologies We Use</h2>
                   <div className="flex flex-wrap gap-3">
                     {service.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white/80 text-sm"
+                        className="px-4 py-2 bg-gray-200 dark:bg-white/10 backdrop-blur-sm rounded-full border border-gray-300 dark:border-white/20 text-gray-700 dark:text-white/80 text-sm"
                       >
                         {tech}
                       </span>
@@ -186,13 +186,13 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
             {/* Deliverables */}
             <FadeIn delay={0.7}>
-              <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-8">
-                <h2 className="text-2xl font-bold text-white mb-6">What You&apos;ll Receive</h2>
+              <div className="bg-gray-100 dark:bg-white/5 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-white/10 p-8">
+                <h2 className="text-2xl font-bold text-black dark:text-white mb-6">What You&apos;ll Receive</h2>
                 <ul className="space-y-3">
                   {service.deliverables.map((deliverable) => (
                     <li key={deliverable} className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-white/80">{deliverable}</span>
+                      <CheckCircle className="w-5 h-5 text-gray-700 dark:text-primary mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700 dark:text-white/80">{deliverable}</span>
                     </li>
                   ))}
                 </ul>
@@ -207,14 +207,14 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               <FadeIn delay={0.3}>
                 <div className="bg-gradient-to-br from-primary/20 to-primary/10 backdrop-blur-sm rounded-xl border border-primary/30 p-6">
                   <div className="flex items-center gap-2 mb-4">
-                    <DollarSign className="w-6 h-6 text-primary" />
-                    <h3 className="text-xl font-bold text-white">Pricing</h3>
+                    <DollarSign className="w-6 h-6 text-gray-700 dark:text-primary" />
+                    <h3 className="text-xl font-bold text-black dark:text-white">Pricing</h3>
                   </div>
                   <div className="mb-4">
-                    <p className="text-3xl font-bold text-white mb-2">
+                    <p className="text-3xl font-bold text-black dark:text-white mb-2">
                       {service.pricing.starting}
                     </p>
-                    <p className="text-white/70 text-sm">{service.pricing.description}</p>
+                    <p className="text-gray-600 dark:text-white/70 text-sm">{service.pricing.description}</p>
                   </div>
                   <Link
                     href="/#contact"
@@ -227,9 +227,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
               {/* Quick Contact */}
               <FadeIn delay={0.4}>
-                <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6">
-                  <h3 className="text-lg font-bold text-white mb-4">Have Questions?</h3>
-                  <p className="text-white/70 text-sm mb-4">
+                <div className="bg-gray-100 dark:bg-white/5 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-white/10 p-6">
+                  <h3 className="text-lg font-bold text-black dark:text-white mb-4">Have Questions?</h3>
+                  <p className="text-gray-600 dark:text-white/70 text-sm mb-4">
                     Let&apos;s discuss your project and find the best solution for your needs.
                   </p>
                   <div className="space-y-3">
@@ -237,13 +237,13 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                       href="https://wa.me/251910940419"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block w-full px-4 py-2 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg hover:bg-white/20 border border-white/20 transition-all text-center text-sm"
+                      className="block w-full px-4 py-2 bg-gray-200 dark:bg-white/10 backdrop-blur-sm text-black dark:text-white font-semibold rounded-lg hover:bg-gray-300 dark:bg-white/20 border border-gray-300 dark:border-white/20 transition-all text-center text-sm"
                     >
                       Chat on WhatsApp
                     </a>
                     <a
                       href="mailto:AuroraSolutions11@gmail.com"
-                      className="block w-full px-4 py-2 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg hover:bg-white/20 border border-white/20 transition-all text-center text-sm"
+                      className="block w-full px-4 py-2 bg-gray-200 dark:bg-white/10 backdrop-blur-sm text-black dark:text-white font-semibold rounded-lg hover:bg-gray-300 dark:bg-white/20 border border-gray-300 dark:border-white/20 transition-all text-center text-sm"
                     >
                       Send Email
                     </a>
@@ -256,8 +256,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
         {/* Related Services */}
         <FadeIn delay={0.8}>
-          <div className="border-t border-white/10 pt-16">
-            <h2 className="text-3xl font-bold text-white text-center mb-12">
+          <div className="border-t border-gray-200 dark:border-white/10 pt-16">
+            <h2 className="text-3xl font-bold text-black dark:text-white text-center mb-12">
               Other Services You Might Like
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
@@ -265,20 +265,20 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 <Link
                   key={relatedService.slug}
                   href={`/services/${relatedService.slug}`}
-                  className="group block bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all p-6"
+                  className="group block bg-gray-100 dark:bg-white/5 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-white/10 hover:border-primary/50 hover:bg-gray-200 dark:bg-white/10 transition-all p-6"
                 >
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <relatedService.icon className="w-6 h-6 text-primary" />
+                      <relatedService.icon className="w-6 h-6 text-gray-700 dark:text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors mb-2">
+                      <h3 className="text-xl font-bold text-black dark:text-white dark:group-hover:text-primary transition-colors mb-2">
                         {relatedService.title}
                       </h3>
-                      <p className="text-white/70 text-sm">{relatedService.shortDescription}</p>
+                      <p className="text-gray-600 dark:text-white/70 text-sm">{relatedService.shortDescription}</p>
                     </div>
                   </div>
-                  <div className="flex items-center text-primary font-semibold text-sm group-hover:translate-x-2 transition-transform">
+                  <div className="flex items-center text-gray-700 dark:text-primary font-semibold text-sm group-hover:translate-x-2 transition-transform">
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </div>
@@ -290,11 +290,11 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
         {/* Final CTA */}
         <FadeIn delay={0.9}>
-          <div className="mt-16 bg-white/5 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-white/10 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+          <div className="mt-16 bg-gray-100 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-gray-200 dark:border-white/10 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black dark:text-white">
               Ready to Get Started?
             </h2>
-            <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-gray-600 dark:text-white/70 text-lg mb-8 max-w-2xl mx-auto">
               Let&apos;s bring your vision to life. Contact us today for a free consultation and
               custom quote.
             </p>
@@ -307,7 +307,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               </Link>
               <Link
                 href="/services"
-                className="inline-block px-8 py-3 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg hover:bg-white/20 border border-white/20 transition-all"
+                className="inline-block px-8 py-3 bg-gray-200 dark:bg-white/10 backdrop-blur-sm text-black dark:text-white font-semibold rounded-lg hover:bg-gray-300 dark:bg-white/20 border border-gray-300 dark:border-white/20 transition-all"
               >
                 View All Services
               </Link>

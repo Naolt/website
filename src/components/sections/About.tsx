@@ -34,8 +34,8 @@ export function About() {
             <div className="max-w-4xl mx-auto">
               <div className="text-center">
                 <p className="text-lg md:text-xl text-gray-700 dark:text-white/80 leading-relaxed">
-                  We combine <span className="font-semibold text-primary">cutting-edge technology</span> with{' '}
-                  <span className="font-semibold text-primary">strategic thinking</span> to deliver digital solutions that drive real business results.
+                  We combine <span className="font-semibold text-gray-900 dark:text-primary">cutting-edge technology</span> with{' '}
+                  <span className="font-semibold text-gray-900 dark:text-primary">strategic thinking</span> to deliver digital solutions that drive real business results.
                   From startups to established enterprises across{' '}
                   <span className="font-semibold text-black dark:text-white">5+ countries</span>, we help businesses compete globally.
                 </p>
@@ -48,7 +48,7 @@ export function About() {
             <SlideIn direction="left" delay={0.1}>
               <div className="bg-gray-100 dark:bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-gray-200 dark:border-white/10 hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-white/10 transition-all group">
                 <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors">
-                  <Target className="w-6 h-6 text-primary" />
+                  <Target className="w-6 h-6 text-gray-700 dark:text-primary" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-black dark:text-white">Technical Excellence</h3>
                 <p className="text-gray-600 dark:text-white/70">
@@ -60,7 +60,7 @@ export function About() {
             <SlideIn direction="up" delay={0.2}>
               <div className="bg-gray-100 dark:bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-gray-200 dark:border-white/10 hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-white/10 transition-all group">
                 <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors">
-                  <Users className="w-6 h-6 text-primary" />
+                  <Users className="w-6 h-6 text-gray-700 dark:text-primary" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-black dark:text-white">Global Standards</h3>
                 <p className="text-gray-600 dark:text-white/70">
@@ -72,7 +72,7 @@ export function About() {
             <SlideIn direction="right" delay={0.3}>
               <div className="bg-gray-100 dark:bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-gray-200 dark:border-white/10 hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-white/10 transition-all group">
                 <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors">
-                  <Heart className="w-6 h-6 text-primary" />
+                  <Heart className="w-6 h-6 text-gray-700 dark:text-primary" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-black dark:text-white">Results-Driven</h3>
                 <p className="text-gray-600 dark:text-white/70">
@@ -98,7 +98,7 @@ export function About() {
                 <div className="group relative">
                   <div className="absolute inset-0 bg-primary/5 rounded-xl blur-xl group-hover:bg-primary/10 transition-all" />
                   <div className="relative bg-gray-100 dark:bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-gray-200 dark:border-white/10 hover:border-primary/30 transition-all text-center h-full flex flex-col justify-center">
-                    <div className="text-xl md:text-2xl font-bold text-primary mb-2 leading-tight">Development</div>
+                    <div className="text-xl md:text-2xl font-bold text-gray-900 dark:text-primary mb-2 leading-tight">Development</div>
                     <div className="text-xs md:text-sm text-gray-500 dark:text-white/50">Web & Mobile</div>
                   </div>
                 </div>
@@ -106,7 +106,7 @@ export function About() {
                 <div className="group relative">
                   <div className="absolute inset-0 bg-primary/5 rounded-xl blur-xl group-hover:bg-primary/10 transition-all" />
                   <div className="relative bg-gray-100 dark:bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-gray-200 dark:border-white/10 hover:border-primary/30 transition-all text-center h-full flex flex-col justify-center">
-                    <div className="text-xl md:text-2xl font-bold text-primary mb-2 leading-tight">ERP/CRM</div>
+                    <div className="text-xl md:text-2xl font-bold text-gray-900 dark:text-primary mb-2 leading-tight">ERP/CRM</div>
                     <div className="text-xs md:text-sm text-gray-500 dark:text-white/50">Business Systems</div>
                   </div>
                 </div>
@@ -114,7 +114,7 @@ export function About() {
                 <div className="group relative">
                   <div className="absolute inset-0 bg-primary/5 rounded-xl blur-xl group-hover:bg-primary/10 transition-all" />
                   <div className="relative bg-gray-100 dark:bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-gray-200 dark:border-white/10 hover:border-primary/30 transition-all text-center h-full flex flex-col justify-center">
-                    <div className="text-xl md:text-2xl font-bold text-primary mb-2 leading-tight">Branding</div>
+                    <div className="text-xl md:text-2xl font-bold text-gray-900 dark:text-primary mb-2 leading-tight">Branding</div>
                     <div className="text-xs md:text-sm text-gray-500 dark:text-white/50">Visual Identity</div>
                   </div>
                 </div>
@@ -122,7 +122,7 @@ export function About() {
                 <div className="group relative">
                   <div className="absolute inset-0 bg-primary/5 rounded-xl blur-xl group-hover:bg-primary/10 transition-all" />
                   <div className="relative bg-gray-100 dark:bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-gray-200 dark:border-white/10 hover:border-primary/30 transition-all text-center h-full flex flex-col justify-center">
-                    <div className="text-xl md:text-2xl font-bold text-primary mb-2 leading-tight">Marketing</div>
+                    <div className="text-xl md:text-2xl font-bold text-gray-900 dark:text-primary mb-2 leading-tight">Marketing</div>
                     <div className="text-xs md:text-sm text-gray-500 dark:text-white/50">Digital Growth</div>
                   </div>
                 </div>

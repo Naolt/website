@@ -138,11 +138,11 @@ export function Hero() {
           <FadeIn delay={0.8} className="mt-16">
             <button
               onClick={() => scrollToSection('about')}
-              className="flex flex-col items-center gap-2 text-gray-500 dark:text-white/50 hover:text-primary transition-colors group mx-auto"
+              className="flex flex-col items-center gap-2 text-gray-500 dark:text-white/50 hover:text-gray-700 dark:hover:text-primary transition-colors group mx-auto"
               aria-label="Scroll to next section"
             >
               <span className="text-sm font-medium">Scroll to explore</span>
-              <ArrowDown className="w-6 h-6 animate-bounce group-hover:text-primary" />
+              <ArrowDown className="w-6 h-6 animate-bounce group-hover:text-gray-700 dark:group-hover:text-primary" />
             </button>
           </FadeIn>
         </div>

@@ -42,11 +42,11 @@ export function Services() {
                 <div className="flex flex-col h-full">
                   {/* Icon */}
                   <div className="w-14 h-14 bg-primary/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/30 transition-colors">
-                    <service.icon className="w-7 h-7 text-primary" />
+                    <service.icon className="w-7 h-7 text-gray-700 dark:text-primary" />
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-2xl font-bold mb-3 text-black dark:text-white group-hover:text-primary transition-colors">
+                  <h3 className="text-2xl font-bold mb-3 text-black dark:text-white dark:group-hover:text-primary transition-colors">
                     {service.title}
                   </h3>
 
@@ -59,14 +59,14 @@ export function Services() {
                   <ul className="space-y-2 mb-6">
                     {service.features.slice(0, 3).map((feature) => (
                       <li key={feature} className="flex items-center text-sm text-gray-500 dark:text-white/60">
-                        <ArrowRight className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
+                        <ArrowRight className="w-4 h-4 text-gray-600 dark:text-primary mr-2 flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
                   </ul>
 
                   {/* Hover indicator */}
-                  <div className="text-primary font-semibold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center gap-1">
+                  <div className="text-gray-700 dark:text-primary font-semibold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center gap-1">
                     Learn More
                     <ArrowRight className="w-4 h-4" />
                   </div>
@@ -81,7 +81,7 @@ export function Services() {
           <div className="mt-16 bg-gray-100 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-gray-200 dark:border-white/10 hover:border-primary/30 transition-all">
             <div className="max-w-3xl mx-auto text-center">
               <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Video className="w-8 h-8 text-primary" />
+                <Video className="w-8 h-8 text-gray-700 dark:text-primary" />
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mb-4 text-black dark:text-white">Aurora Video Production</h3>
               <p className="text-gray-600 dark:text-white/70 text-lg mb-6">

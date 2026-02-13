@@ -128,7 +128,7 @@ export function Footer() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-600 dark:text-white/60 hover:text-primary transition-colors"
+                    className="text-gray-600 dark:text-white/60 hover:text-black hover:bg-primary/20 dark:hover:text-primary dark:hover:bg-transparent transition-all p-2 rounded -m-2"
                   >
                     <span className="sr-only">{item.name}</span>
                     <item.icon className="h-5 w-5" />
@@ -167,10 +167,10 @@ export function Footer() {
               <ul className="space-y-3">
                 {settings.email && (
                   <li className="flex items-start gap-2">
-                    <Mail className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                    <Mail className="h-5 w-5 text-gray-700 dark:text-primary shrink-0 mt-0.5" />
                     <a
                       href={`mailto:${settings.email}`}
-                      className="text-sm text-gray-600 dark:text-white/60 hover:text-primary transition-colors break-all"
+                      className="text-sm text-gray-600 dark:text-white/60 hover:text-black dark:hover:text-primary transition-colors break-all"
                     >
                       {settings.email}
                     </a>
@@ -178,13 +178,13 @@ export function Footer() {
                 )}
                 {settings.phone && settings.phone.length > 0 && (
                   <li className="flex items-start gap-2">
-                    <Phone className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                    <Phone className="h-5 w-5 text-gray-700 dark:text-primary shrink-0 mt-0.5" />
                     <div className="text-sm text-gray-600 dark:text-white/60">
                       {settings.phone.map((phoneNumber) => (
                         <a
                           key={phoneNumber}
                           href={`tel:${phoneNumber.replace(/\s/g, '')}`}
-                          className="block hover:text-primary transition-colors"
+                          className="block hover:text-black dark:hover:text-primary transition-colors"
                         >
                           {phoneNumber}
                         </a>
@@ -194,7 +194,7 @@ export function Footer() {
                 )}
                 {settings.address && (
                   <li className="flex items-start gap-2">
-                    <MapPin className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                    <MapPin className="h-5 w-5 text-gray-700 dark:text-primary shrink-0 mt-0.5" />
                     <span className="text-sm text-gray-600 dark:text-white/60">
                       {settings.address}
                     </span>
@@ -214,14 +214,14 @@ export function Footer() {
                 <div className="flex items-center gap-4 text-sm">
                   <Link
                     href="/privacy"
-                    className="text-gray-500 dark:text-white/50 hover:text-primary transition-colors"
+                    className="text-gray-500 dark:text-white/50 hover:text-black dark:hover:text-primary transition-colors"
                   >
                     Privacy Policy
                   </Link>
                   <span className="text-gray-300 dark:text-white/30">•</span>
                   <Link
                     href="/terms"
-                    className="text-gray-500 dark:text-white/50 hover:text-primary transition-colors"
+                    className="text-gray-500 dark:text-white/50 hover:text-black dark:hover:text-primary transition-colors"
                   >
                     Terms of Service
                   </Link>
