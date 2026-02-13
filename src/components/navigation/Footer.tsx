@@ -1,3 +1,6 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Mail, Phone, MapPin, Linkedin, Facebook, Twitter, Camera, Video, Send } from 'lucide-react'
@@ -37,25 +40,26 @@ const defaultSettings: SiteSettings = {
   },
 }
 
-export async function Footer() {
-  // Fetch site settings from Sanity
-  let settings: SiteSettings
-  try {
-    settings = await client.fetch<SiteSettings>(
-      siteSettingsQuery,
-      {},
-      { next: { revalidate: 60 } }
-    )
-    // If no settings in Sanity, use defaults
-    if (!settings) {
-      settings = defaultSettings
-    }
-  } catch (error) {
-    // Fallback to default if Sanity fetch fails
-    settings = defaultSettings
-  }
-
+export function Footer() {
+  const [settings, setSettings] = useState<SiteSettings>(defaultSettings)
   const currentYear = new Date().getFullYear()
+
+  useEffect(() => {
+    // Fetch site settings from Sanity on mount
+    async function fetchSettings() {
+      try {
+        const data = await client.fetch<SiteSettings>(siteSettingsQuery)
+        if (data) {
+          setSettings(data)
+        }
+      } catch (error) {
+        console.error('Failed to fetch site settings:', error)
+        // Keep using default settings
+      }
+    }
+
+    fetchSettings()
+  }, [])
 
   // Build social media array with icons
   const socialMedia = []
