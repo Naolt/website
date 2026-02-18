@@ -8,8 +8,9 @@ import { WhatsAppButton } from '@/components/ui/WhatsAppButton'
 export function ConditionalLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const isStudio = pathname?.startsWith('/studio')
+  const isInternal = pathname?.startsWith('/internal')
 
-  if (isStudio) {
+  if (isStudio || isInternal) {
     return <>{children}</>
   }
 

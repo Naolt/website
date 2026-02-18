@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurora Solutions - Carousel Templates</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Lexend', sans-serif;
+    background: #111;
+    color: white;
+    padding: 60px 40px;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  .page-header h1 {
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #BFFF00;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .page-header p {
+    color: #555;
+    font-size: 13px;
+    font-weight: 300;
+  }
+
+  /* Carousel section */
+  .carousel-section {
+    margin-bottom: 100px;
+  }
+  .carousel-title {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    font-weight: 500;
+    margin-bottom: 8px;
+    padding-left: 4px;
+  }
+  .carousel-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.15);
+    margin-bottom: 28px;
+    padding-left: 4px;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    scroll-snap-type: x mandatory;
+  }
+  .carousel-track::-webkit-scrollbar {
+    height: 4px;
+  }
+  .carousel-track::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+    border-radius: 2px;
+  }
+  .carousel-track::-webkit-scrollbar-thumb {
+    background: rgba(191,255,0,0.3);
+    border-radius: 2px;
+  }
+
+  /* Slide number indicator */
+  .slide {
+    position: relative;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+  .slide-num {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 1px;
+  }
+
+  /* ============================================
+     BASE SLIDE: 400x400 (scales well for preview)
+     ============================================ */
+  .s { width: 400px; height: 400px; position: relative; overflow: hidden; }
+
+  /* --- Shared elements --- */
+  .grid-bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .diag-bg {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(-45deg, transparent, transparent 30px, rgba(191,255,0,0.015) 30px, rgba(191,255,0,0.015) 31px);
+  }
+  .orb-tr {
+    position: absolute; top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(191,255,0,0.15) 0%, rgba(191,255,0,0.03) 40%, transparent 70%);
+    border-radius: 50%;
+  }
+  .orb-bl {
+    position: absolute; bottom: -80px; left: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(191,255,0,0.1) 0%, transparent 60%);
+    border-radius: 50%;
+  }
+  .stripe-left {
+    position: absolute; top: 0; bottom: 0; left: 0; width: 3px;
+    background: linear-gradient(to bottom, #BFFF00, rgba(191,255,0,0.05));
+  }
+  .ring { position: absolute; border: 1px solid rgba(191,255,0,0.04); border-radius: 50%; }
+  .ring-sm { width: 200px; height: 200px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .ring-lg { width: 400px; height: 400px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .corner-tl {
+    position: absolute; top: 30px; left: 30px;
+    width: 40px; height: 40px;
+    border-top: 1.5px solid rgba(191,255,0,0.25);
+    border-left: 1.5px solid rgba(191,255,0,0.25);
+  }
+  .corner-br {
+    position: absolute; bottom: 30px; right: 30px;
+    width: 40px; height: 40px;
+    border-bottom: 1.5px solid rgba(191,255,0,0.25);
+    border-right: 1.5px solid rgba(191,255,0,0.25);
+  }
+  .slide-footer {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    z-index: 5;
+  }
+  .slide-footer span {
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.2); font-weight: 500;
+  }
+  .slide-footer .dot {
+    width: 5px; height: 5px; background: #BFFF00; border-radius: 50%;
+  }
+  .slide-dots {
+    display: flex; gap: 5px; align-items: center;
+  }
+  .slide-dots .d {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+  }
+  .slide-dots .d.active { background: #BFFF00; }
+
+  /* ============================================
+     CAROUSEL 1: TIPS / VALUE (7 slides)
+     ============================================ */
+
+  /* Slide 1: Hook */
+  .tips-hook {
+    background: #000;
+    display: flex; flex-direction: column;
+    justify-content: center; padding: 40px;
+  }
+  .tips-hook .content { position: relative; z-index: 2; }
+  .tips-hook .badge {
+    display: inline-block;
+    background: #BFFF00; color: #000;
+    font-size: 10px; font-weight: 700;
+    padding: 5px 14px; border-radius: 20px;
+    margin-bottom: 24px; letter-spacing: 0.5px;
+  }
+  .tips-hook h2 {
+    font-size: 34px; font-weight: 800;
+    color: white; line-height: 1.08; letter-spacing: -1px;
+  }
+  .tips-hook h2 em {
+    font-style: normal; color: #BFFF00; display: block;
+  }
+  .tips-hook .sub {
+    font-size: 13px; color: rgba(255,255,255,0.4);
+    margin-top: 16px; font-weight: 300; line-height: 1.5;
+  }
+  .tips-hook .swipe {
+    position: absolute; bottom: 50px; right: 40px;
+    font-size: 10px; color: rgba(255,255,255,0.25);
+    letter-spacing: 1px; text-transform: uppercase;
+    display: flex; align-items: center; gap: 8px; z-index: 5;
+  }
+  .tips-hook .swipe .arr { font-size: 16px; color: #BFFF00; }
+
+  /* Slides 2-6: Individual tip */
+  .tip-slide {
+    background: #000;
+    display: flex; flex-direction: column;
+    justify-content: center; padding: 40px;
+  }
+  .tip-slide .content { position: relative; z-index: 2; padding-left: 8px; }
+  .tip-slide .step-num {
+    font-size: 72px; font-weight: 900;
+    color: rgba(191,255,0,0.12); line-height: 0.85;
+    margin-bottom: 16px;
+  }
+  .tip-slide h3 {
+    font-size: 26px; font-weight: 700;
+    color: white; line-height: 1.2; margin-bottom: 14px;
+    letter-spacing: -0.3px;
+  }
+  .tip-slide p {
+    font-size: 14px; color: rgba(255,255,255,0.5);
+    line-height: 1.6; font-weight: 300; max-width: 300px;
+  }
+
+  /* Slide 7: CTA */
+  .tips-cta {
+    background: #BFFF00;
+    display: flex; flex-direction: column;
+    justify-content: center; padding: 40px;
+  }
+  .tips-cta .geo {
+    position: absolute; top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    background: rgba(0,0,0,0.05); border-radius: 50%;
+  }
+  .tips-cta .content { position: relative; z-index: 2; }
+  .tips-cta .eyebrow {
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(0,0,0,0.4); font-weight: 600; margin-bottom: 20px;
+  }
+  .tips-cta h2 {
+    font-size: 32px; font-weight: 800; color: #000;
+    line-height: 1.08; margin-bottom: 14px; letter-spacing: -0.5px;
+  }
+  .tips-cta .desc {
+    font-size: 13px; color: rgba(0,0,0,0.5);
+    line-height: 1.5; margin-bottom: 28px; font-weight: 400;
+  }
+  .tips-cta .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #000; color: #BFFF00;
+    padding: 14px 28px; border-radius: 10px;
+    font-weight: 700; font-size: 13px;
+  }
+  .tips-cta .btn .arr { font-size: 16px; }
+  .tips-cta .brand-f {
+    position: absolute; bottom: 24px; left: 40px;
+    font-size: 9px; color: rgba(0,0,0,0.25);
+    letter-spacing: 2px; text-transform: uppercase; z-index: 2;
+  }
+
+  /* ============================================
+     CAROUSEL 2: SERVICE HIGHLIGHT (5 slides)
+     ============================================ */
+  .svc-hook {
+    background: #000;
+    display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 40px;
+  }
+  .svc-hook .content { position: relative; z-index: 2; }
+  .svc-hook .eyebrow {
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: #BFFF00; font-weight: 600; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .svc-hook .eyebrow::before {
+    content: ''; width: 20px; height: 1.5px; background: #BFFF00;
+  }
+  .svc-hook h2 {
+    font-size: 36px; font-weight: 800; color: white;
+    line-height: 1.05; letter-spacing: -1px;
+  }
+  .svc-hook h2 em {
+    font-style: normal; color: #BFFF00; display: block;
+  }
+  .svc-hook .sub {
+    font-size: 13px; color: rgba(255,255,255,0.4);
+    margin-top: 14px; font-weight: 300;
+  }
+
+  .svc-feature {
+    background: #000;
+    display: flex; flex-direction: column;
+    justify-content: center; padding: 40px;
+  }
+  .svc-feature .content { position: relative; z-index: 2; }
+  .svc-feature .icon-box {
+    width: 48px; height: 48px;
+    border: 1.5px solid rgba(191,255,0,0.3); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 24px;
+  }
+  .svc-feature .icon-box .inner {
+    width: 18px; height: 18px; background: #BFFF00; border-radius: 4px;
+  }
+  .svc-feature .tag {
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.3); margin-bottom: 14px;
+  }
+  .svc-feature h3 {
+    font-size: 24px; font-weight: 700; color: white;
+    line-height: 1.15; margin-bottom: 14px; letter-spacing: -0.3px;
+  }
+  .svc-feature p {
+    font-size: 14px; color: rgba(255,255,255,0.5);
+    line-height: 1.6; font-weight: 300;
+  }
+
+  /* ============================================
+     CAROUSEL 3: TESTIMONIAL (4 slides)
+     ============================================ */
+  .test-hook {
+    background: #000;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center; padding: 50px;
+  }
+  .test-hook .content { position: relative; z-index: 2; }
+  .test-hook .quote-icon {
+    font-size: 60px; color: #BFFF00; line-height: 0.6;
+    font-weight: 900; margin-bottom: 24px; opacity: 0.7;
+  }
+  .test-hook h2 {
+    font-size: 24px; font-weight: 300; color: rgba(255,255,255,0.9);
+    line-height: 1.5; letter-spacing: -0.2px;
+  }
+  .test-hook h2 strong {
+    font-weight: 700; color: #BFFF00;
+  }
+
+  .test-detail {
+    background: #000;
+    display: flex; flex-direction: column;
+    justify-content: center; padding: 40px;
+  }
+  .test-detail .content { position: relative; z-index: 2; padding-left: 8px; }
+  .test-detail .label {
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: #BFFF00; font-weight: 600; margin-bottom: 24px;
+  }
+  .test-detail .detail-item {
+    margin-bottom: 22px;
+  }
+  .test-detail .detail-item .key {
+    font-size: 10px; color: rgba(255,255,255,0.3);
+    text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 4px;
+  }
+  .test-detail .detail-item .val {
+    font-size: 16px; color: rgba(255,255,255,0.8); font-weight: 500;
+  }
+  .test-detail .detail-item .val.highlight { color: #BFFF00; font-weight: 700; }
+
+  .test-client {
+    background: #000;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center; padding: 50px;
+  }
+  .test-client .content { position: relative; z-index: 2; }
+  .test-client .avatar {
+    width: 64px; height: 64px;
+    background: linear-gradient(135deg, #BFFF00, rgba(191,255,0,0.3));
+    border-radius: 50%; margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 700; color: #000;
+  }
+  .test-client .name {
+    font-size: 18px; font-weight: 700; color: white; margin-bottom: 4px;
+  }
+  .test-client .role {
+    font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 16px;
+  }
+  .test-client .stars {
+    display: flex; gap: 4px; justify-content: center;
+  }
+  .test-client .stars .star {
+    width: 16px; height: 16px; background: #BFFF00;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+
+  /* ============================================
+     CAROUSEL 4: COMPARISON (4 slides)
+     ============================================ */
+  .comp-hook {
+    background: #000;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center; padding: 50px;
+  }
+  .comp-hook .content { position: relative; z-index: 2; }
+  .comp-hook .vs-badge {
+    display: inline-block;
+    background: #BFFF00; color: #000;
+    font-size: 11px; font-weight: 700;
+    padding: 6px 20px; border-radius: 20px;
+    margin-bottom: 24px; letter-spacing: 1px;
+  }
+  .comp-hook h2 {
+    font-size: 30px; font-weight: 700; color: white;
+    line-height: 1.2; letter-spacing: -0.5px;
+  }
+  .comp-hook h2 em { font-style: normal; color: #BFFF00; }
+
+  .comp-bad {
+    background: #000;
+    display: flex; flex-direction: column;
+    justify-content: center; padding: 40px;
+  }
+  .comp-bad .content { position: relative; z-index: 2; }
+  .comp-bad .label {
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(255,255,255,0.25); font-weight: 600; margin-bottom: 28px;
+  }
+  .comp-bad .point {
+    display: flex; align-items: flex-start; gap: 14px;
+    margin-bottom: 18px;
+  }
+  .comp-bad .x {
+    width: 24px; height: 24px;
+    border: 1.5px solid rgba(255,68,68,0.3); border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    color: #ff4444; font-size: 14px; font-weight: 700; flex-shrink: 0;
+  }
+  .comp-bad .text {
+    font-size: 15px; color: rgba(255,255,255,0.45);
+    line-height: 1.4; font-weight: 400; padding-top: 2px;
+  }
+
+  .comp-good {
+    background: #000;
+    display: flex; flex-direction: column;
+    justify-content: center; padding: 40px;
+  }
+  .comp-good .content { position: relative; z-index: 2; }
+  .comp-good .label {
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: #BFFF00; font-weight: 600; margin-bottom: 28px;
+  }
+  .comp-good .point {
+    display: flex; align-items: flex-start; gap: 14px;
+    margin-bottom: 18px;
+  }
+  .comp-good .chk {
+    width: 24px; height: 24px;
+    border: 1.5px solid rgba(191,255,0,0.3); border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    color: #BFFF00; font-size: 14px; font-weight: 700; flex-shrink: 0;
+  }
+  .comp-good .text {
+    font-size: 15px; color: rgba(255,255,255,0.75);
+    line-height: 1.4; font-weight: 400; padding-top: 2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Carousel Templates</h1>
+  <p>Aurora Solutions &mdash; Swipeable multi-slide posts for Instagram & LinkedIn</p>
+</div>
+
+<!-- =============================================
+     CAROUSEL 1: TIPS / VALUE (7 slides)
+     ============================================= -->
+<div class="carousel-section">
+  <div class="carousel-title">Carousel 1 &mdash; Tips / Value Content</div>
+  <div class="carousel-desc">Hook &rarr; 5 tips (one per slide) &rarr; CTA</div>
+  <div class="carousel-track">
+
+    <!-- Slide 1: Hook -->
+    <div class="slide">
+      <span class="slide-num">Slide 1</span>
+      <div class="s tips-hook">
+        <div class="grid-bg"></div>
+        <div class="orb-tr"></div>
+        <div class="content">
+          <div class="badge">5 Signs</div>
+          <h2>Your Website Is<br>Losing You<em>Customers</em></h2>
+          <p class="sub">Swipe to find out if yours<br>is one of them.</p>
+        </div>
+        <div class="swipe">Swipe <span class="arr">&rarr;</span></div>
+        <div class="slide-footer">
+          <span>Aurora Solutions</span>
+          <div class="slide-dots">
+            <div class="d active"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: Tip 1 -->
+    <div class="slide">
+      <span class="slide-num">Slide 2</span>
+      <div class="s tip-slide">
+        <div class="stripe-left"></div>
+        <div class="content">
+          <div class="step-num">01</div>
+          <h3>Takes More Than<br>3 Seconds to Load</h3>
+          <p>53% of mobile visitors leave a site that takes longer than 3 seconds. Speed is not optional.</p>
+        </div>
+        <div class="slide-footer">
+          <span>Aurora Solutions</span>
+          <div class="slide-dots">
+            <div class="d"></div><div class="d active"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Tip 2 -->
+    <div class="slide">
+      <span class="slide-num">Slide 3</span>
+      <div class="s tip-slide">
+        <div class="stripe-left"></div>
+        <div class="content">
+          <div class="step-num">02</div>
+          <h3>Not Optimized<br>for Mobile</h3>
+          <p>Over 60% of web traffic comes from phones. If your site breaks on mobile, you are invisible to most visitors.</p>
+        </div>
+        <div class="slide-footer">
+          <span>Aurora Solutions</span>
+          <div class="slide-dots">
+            <div class="d"></div><div class="d"></div><div class="d active"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4: Tip 3 -->
+    <div class="slide">
+      <span class="slide-num">Slide 4</span>
+      <div class="s tip-slide">
+        <div class="stripe-left"></div>
+        <div class="content">
+          <div class="step-num">03</div>
+          <h3>No Clear<br>Call-to-Action</h3>
+          <p>Visitors land on your homepage and don't know what to do next. Every page needs a clear next step.</p>
+        </div>
+        <div class="slide-footer">
+          <span>Aurora Solutions</span>
+          <div class="slide-dots">
+            <div class="d"></div><div class="d"></div><div class="d"></div><div class="d active"></div><div class="d"></div><div class="d"></div><div class="d"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 5: Tip 4 -->
+    <div class="slide">
+      <span class="slide-num">Slide 5</span>
+      <div class="s tip-slide">
+        <div class="stripe-left"></div>
+        <div class="content">
+          <div class="step-num">04</div>
+          <h3>Outdated Design<br>That Kills Trust</h3>
+          <p>75% of users judge a company's credibility based on its website design. First impressions are everything.</p>
+        </div>
+        <div class="slide-footer">
+          <span>Aurora Solutions</span>
+          <div class="slide-dots">
+            <div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d active"></div><div class="d"></div><div class="d"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 6: Tip 5 -->
+    <div class="slide">
+      <span class="slide-num">Slide 6</span>
+      <div class="s tip-slide">
+        <div class="stripe-left"></div>
+        <div class="content">
+          <div class="step-num">05</div>
+          <h3>Invisible on<br>Google Search</h3>
+          <p>If your site is not optimized for SEO, your competitors are getting the traffic you should have.</p>
+        </div>
+        <div class="slide-footer">
+          <span>Aurora Solutions</span>
+          <div class="slide-dots">
+            <div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d active"></div><div class="d"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 7: CTA -->
+    <div class="slide">
+      <span class="slide-num">Slide 7</span>
+      <div class="s tips-cta">
+        <div class="geo"></div>
+        <div class="content">
+          <div class="eyebrow">Free Consultation</div>
+          <h2>We Fix All Five.<br>Let's Talk.</h2>
+          <p class="desc">30 minutes. No commitment. We will review your site and give you an honest assessment.</p>
+          <div class="btn">Book a Call <span class="arr">&rarr;</span></div>
+        </div>
+        <div class="brand-f">Aurora Solutions</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- =============================================
+     CAROUSEL 2: SERVICE HIGHLIGHT (5 slides)
+     ============================================= -->
+<div class="carousel-section">
+  <div class="carousel-title">Carousel 2 &mdash; Service Highlight</div>
+  <div class="carousel-desc">Hook &rarr; 3 key features &rarr; CTA</div>
+  <div class="carousel-track">
+
+    <!-- Slide 1: Hook -->
+    <div class="slide">
+      <span class="slide-num">Slide 1</span>
+      <div class="s svc-hook">
+        <div class="grid-bg"></div>
+        <div class="orb-tr"></div>
+        <div class="content">
+          <div class="eyebrow">Web Development</div>
+          <h2>Websites That<br>Load Fast and<em>Convert.</em></h2>
+          <p class="sub">Built with React, Next.js, and modern tools.</p>
+        </div>
+        <div class="slide-footer">
+          <span>Aurora Solutions</span>
+          <div class="slide-dots">
+            <div class="d active"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: Feature 1 -->
+    <div class="slide">
+      <span class="slide-num">Slide 2</span>
+      <div class="s svc-feature">
+        <div class="diag-bg"></div>
+        <div class="content">
+          <div class="icon-box"><div class="inner"></div></div>
+          <div class="tag">Performance</div>
+          <h3>Lightning-Fast<br>Page Speeds</h3>
+          <p>Server-side rendering, optimized images, and clean code. Your site loads in under 2 seconds on any device.</p>
+        </div>
+        <div class="slide-footer">
+          <span>Aurora Solutions</span>
+          <div class="slide-dots">
+            <div class="d"></div><div class="d active"></div><div class="d"></div><div class="d"></div><div class="d"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Feature 2 -->
+    <div class="slide">
+      <span class="slide-num">Slide 3</span>
+      <div class="s svc-feature">
+        <div class="diag-bg"></div>
+        <div class="content">
+          <div class="icon-box"><div class="inner"></div></div>
+          <div class="tag">SEO Built In</div>
+          <h3>Rank Higher<br>on Google</h3>
+          <p>Semantic HTML, structured data, meta tags, and technical SEO baked into every page from day one.</p>
+        </div>
+        <div class="slide-footer">
+          <span>Aurora Solutions</span>
+          <div class="slide-dots">
+            <div class="d"></div><div class="d"></div><div class="d active"></div><div class="d"></div><div class="d"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4: Feature 3 -->
+    <div class="slide">
+      <span class="slide-num">Slide 4</span>
+      <div class="s svc-feature">
+        <div class="diag-bg"></div>
+        <div class="content">
+          <div class="icon-box"><div class="inner"></div></div>
+          <div class="tag">Mobile First</div>
+          <h3>Looks Perfect<br>on Every Screen</h3>
+          <p>Responsive from the start. Phone, tablet, desktop. Your site adapts and stays sharp everywhere.</p>
+        </div>
+        <div class="slide-footer">
+          <span>Aurora Solutions</span>
+          <div class="slide-dots">
+            <div class="d"></div><div class="d"></div><div class="d"></div><div class="d active"></div><div class="d"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 5: CTA -->
+    <div class="slide">
+      <span class="slide-num">Slide 5</span>
+      <div class="s tips-cta">
+        <div class="geo"></div>
+        <div class="content">
+          <div class="eyebrow">Get Started</div>
+          <h2>Need a Website<br>That Works?</h2>
+          <p class="desc">Tell us what you need. We will put together a proposal within 48 hours.</p>
+          <div class="btn">Book a Call <span class="arr">&rarr;</span></div>
+        </div>
+        <div class="brand-f">Aurora Solutions</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- =============================================
+     CAROUSEL 3: TESTIMONIAL (4 slides)
+     ============================================= -->
+<div class="carousel-section">
+  <div class="carousel-title">Carousel 3 &mdash; Client Testimonial</div>
+  <div class="carousel-desc">Quote &rarr; Project details &rarr; Client &rarr; CTA</div>
+  <div class="carousel-track">
+
+    <!-- Slide 1: Quote -->
+    <div class="slide">
+      <span class="slide-num">Slide 1</span>
+      <div class="s test-hook">
+        <div class="ring ring-sm"></div>
+        <div class="ring ring-lg"></div>
+        <div class="content">
+          <div class="quote-icon">&ldquo;</div>
+          <h2>Aurora delivered our<br>platform ahead of schedule.<br>The quality matched agencies<br>charging <strong>3x the price</strong>.</h2>
+        </div>
+        <div class="slide-footer">
+          <span>Aurora Solutions</span>
+          <div class="slide-dots">
+            <div class="d active"></div><div class="d"></div><div class="d"></div><div class="d"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: Project details -->
+    <div class="slide">
+      <span class="slide-num">Slide 2</span>
+      <div class="s test-detail">
+        <div class="stripe-left"></div>
+        <div class="content">
+          <div class="label">Project Details</div>
+          <div class="detail-item">
+            <div class="key">Service</div>
+            <div class="val">Full-Stack Web Application</div>
+          </div>
+          <div class="detail-item">
+            <div class="key">Timeline</div>
+            <div class="val">8 weeks (delivered in 6)</div>
+          </div>
+          <div class="detail-item">
+            <div class="key">Tech Stack</div>
+            <div class="val">Next.js, PostgreSQL, Vercel</div>
+          </div>
+          <div class="detail-item">
+            <div class="key">Result</div>
+            <div class="val highlight">40% increase in conversions</div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Aurora Solutions</span>
+          <div class="slide-dots">
+            <div class="d"></div><div class="d active"></div><div class="d"></div><div class="d"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Client info -->
+    <div class="slide">
+      <span class="slide-num">Slide 3</span>
+      <div class="s test-client">
+        <div class="corner-tl"></div>
+        <div class="corner-br"></div>
+        <div class="content">
+          <div class="avatar">SJ</div>
+          <div class="name">Sarah Johnson</div>
+          <div class="role">CEO, TechVenture Inc.</div>
+          <div class="stars">
+            <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Aurora Solutions</span>
+          <div class="slide-dots">
+            <div class="d"></div><div class="d"></div><div class="d active"></div><div class="d"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4: CTA -->
+    <div class="slide">
+      <span class="slide-num">Slide 4</span>
+      <div class="s tips-cta">
+        <div class="geo"></div>
+        <div class="content">
+          <div class="eyebrow">Your Turn</div>
+          <h2>Let's Build<br>Your Success<br>Story.</h2>
+          <p class="desc">Book a free consultation and let's talk about what we can build together.</p>
+          <div class="btn">Book a Call <span class="arr">&rarr;</span></div>
+        </div>
+        <div class="brand-f">Aurora Solutions</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- =============================================
+     CAROUSEL 4: COMPARISON (4 slides)
+     ============================================= -->
+<div class="carousel-section">
+  <div class="carousel-title">Carousel 4 &mdash; Before / After Comparison</div>
+  <div class="carousel-desc">Hook &rarr; Problem &rarr; Solution &rarr; CTA</div>
+  <div class="carousel-track">
+
+    <!-- Slide 1: Hook -->
+    <div class="slide">
+      <span class="slide-num">Slide 1</span>
+      <div class="s comp-hook">
+        <div class="grid-bg"></div>
+        <div class="ring ring-sm"></div>
+        <div class="ring ring-lg"></div>
+        <div class="content">
+          <div class="vs-badge">Before vs After</div>
+          <h2>What Happens When<br>You Invest in a<br><em>Real Website</em></h2>
+        </div>
+        <div class="slide-footer">
+          <span>Aurora Solutions</span>
+          <div class="slide-dots">
+            <div class="d active"></div><div class="d"></div><div class="d"></div><div class="d"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: The Problem -->
+    <div class="slide">
+      <span class="slide-num">Slide 2</span>
+      <div class="s comp-bad">
+        <div class="content">
+          <div class="label">The Problem</div>
+          <div class="point">
+            <div class="x">&times;</div>
+            <span class="text">Slow, outdated website that drives visitors away</span>
+          </div>
+          <div class="point">
+            <div class="x">&times;</div>
+            <span class="text">Inconsistent branding across every channel</span>
+          </div>
+          <div class="point">
+            <div class="x">&times;</div>
+            <span class="text">No mobile experience for 60% of your traffic</span>
+          </div>
+          <div class="point">
+            <div class="x">&times;</div>
+            <span class="text">Zero leads from your online presence</span>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Aurora Solutions</span>
+          <div class="slide-dots">
+            <div class="d"></div><div class="d active"></div><div class="d"></div><div class="d"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: The Solution -->
+    <div class="slide">
+      <span class="slide-num">Slide 3</span>
+      <div class="s comp-good">
+        <div class="orb-bl"></div>
+        <div class="content">
+          <div class="label">With Aurora</div>
+          <div class="point">
+            <div class="chk">&check;</div>
+            <span class="text">Fast, modern platform that builds trust instantly</span>
+          </div>
+          <div class="point">
+            <div class="chk">&check;</div>
+            <span class="text">Cohesive brand identity across all touchpoints</span>
+          </div>
+          <div class="point">
+            <div class="chk">&check;</div>
+            <span class="text">Mobile-first design that works on every screen</span>
+          </div>
+          <div class="point">
+            <div class="chk">&check;</div>
+            <span class="text">Real leads and conversions from day one</span>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Aurora Solutions</span>
+          <div class="slide-dots">
+            <div class="d"></div><div class="d"></div><div class="d active"></div><div class="d"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4: CTA -->
+    <div class="slide">
+      <span class="slide-num">Slide 4</span>
+      <div class="s tips-cta">
+        <div class="geo"></div>
+        <div class="content">
+          <div class="eyebrow">Make the Switch</div>
+          <h2>Ready for a<br>Website That<br>Works?</h2>
+          <p class="desc">Book a free consultation. We will show you exactly what needs to change.</p>
+          <div class="btn">Book a Call <span class="arr">&rarr;</span></div>
+        </div>
+        <div class="brand-f">Aurora Solutions</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

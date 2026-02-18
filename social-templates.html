@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurora Solutions - Social Media Templates</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lexend', sans-serif;
+    background: #111;
+    color: white;
+    padding: 60px 40px;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  .page-header h1 {
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #BFFF00;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .page-header p {
+    color: #555;
+    font-size: 13px;
+    font-weight: 300;
+  }
+
+  .templates-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px;
+    justify-content: center;
+  }
+
+  .template-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .template-label {
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.4;
+  }
+
+  /* ============================================
+     SHARED: All templates are 540x540 (50% of 1080)
+     ============================================ */
+
+  /* ===== T1: HERO / BRAND STATEMENT ===== */
+  .t1 {
+    width: 540px; height: 540px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 56px;
+  }
+  /* Large glowing orb top-right */
+  .t1 .orb {
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 420px; height: 420px;
+    background: radial-gradient(circle, rgba(191,255,0,0.18) 0%, rgba(191,255,0,0.04) 40%, transparent 70%);
+    border-radius: 50%;
+  }
+  /* Fine grid */
+  .t1 .grid-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 54px 54px;
+  }
+  .t1 .content { position: relative; z-index: 2; }
+  .t1 .eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #BFFF00;
+    font-weight: 600;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .t1 .eyebrow::before {
+    content: '';
+    width: 24px; height: 1.5px;
+    background: #BFFF00;
+  }
+  .t1 h2 {
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1.05;
+    color: white;
+    letter-spacing: -1px;
+  }
+  .t1 h2 em {
+    font-style: normal;
+    color: #BFFF00;
+    display: block;
+  }
+  .t1 .sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    margin-top: 20px;
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 320px;
+  }
+  .t1 .footer-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 56px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    z-index: 2;
+  }
+  .t1 .footer-bar span {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    font-weight: 500;
+  }
+  .t1 .footer-bar .dot {
+    width: 6px; height: 6px;
+    background: #BFFF00;
+    border-radius: 50%;
+  }
+
+  /* ===== T2: SERVICE HIGHLIGHT ===== */
+  .t2 {
+    width: 540px; height: 540px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 56px;
+  }
+  .t2 .corner-accent {
+    position: absolute;
+    top: 0; right: 0;
+    width: 180px; height: 180px;
+    border-bottom: 1px solid rgba(191,255,0,0.15);
+    border-left: 1px solid rgba(191,255,0,0.15);
+  }
+  .t2 .corner-accent::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at 100% 0%, rgba(191,255,0,0.06) 0%, transparent 70%);
+  }
+  .t2 .icon-area {
+    width: 48px; height: 48px;
+    border: 1.5px solid rgba(191,255,0,0.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    position: relative; z-index: 1;
+  }
+  .t2 .icon-area .icon-inner {
+    width: 20px; height: 20px;
+    background: #BFFF00;
+    border-radius: 4px;
+  }
+  .t2 .tag {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    font-weight: 500;
+    margin-bottom: 16px;
+    position: relative; z-index: 1;
+  }
+  .t2 h2 {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 32px;
+    letter-spacing: -0.5px;
+    position: relative; z-index: 1;
+  }
+  .t2 .features {
+    list-style: none;
+    position: relative; z-index: 1;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .t2 .features li {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-weight: 300;
+  }
+  .t2 .features li .check {
+    width: 18px; height: 18px;
+    border: 1.5px solid rgba(191,255,0,0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .t2 .features li .check::after {
+    content: '';
+    width: 7px; height: 7px;
+    background: #BFFF00;
+    border-radius: 50%;
+  }
+  .t2 .bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; z-index: 1;
+    padding-top: 24px;
+  }
+  .t2 .bottom-bar .brand {
+    font-size: 10px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .t2 .bottom-bar .url {
+    font-size: 11px;
+    color: #BFFF00;
+    font-weight: 500;
+  }
+
+  /* ===== T3: STATS / NUMBERS ===== */
+  .t3 {
+    width: 540px; height: 540px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 56px;
+  }
+  /* Concentric circles */
+  .t3 .ring {
+    position: absolute;
+    border: 1px solid rgba(191,255,0,0.05);
+    border-radius: 50%;
+  }
+  .t3 .ring-1 { width: 300px; height: 300px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .t3 .ring-2 { width: 500px; height: 500px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .t3 .ring-3 { width: 700px; height: 700px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .t3 .content { position: relative; z-index: 2; width: 100%; }
+  .t3 .big-number {
+    font-size: 120px;
+    font-weight: 900;
+    color: #BFFF00;
+    line-height: 0.9;
+    letter-spacing: -6px;
+    margin-bottom: 8px;
+  }
+  .t3 .big-label {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 36px;
+    letter-spacing: 1px;
+  }
+  .t3 .divider-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .t3 .divider-row .line {
+    width: 40px; height: 1px;
+    background: rgba(255,255,255,0.15);
+  }
+  .t3 .divider-row .diamond {
+    width: 6px; height: 6px;
+    background: #BFFF00;
+    transform: rotate(45deg);
+  }
+  .t3 .sub-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+  }
+  .t3 .sub-stat .num {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 2px;
+  }
+  .t3 .sub-stat .label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 400;
+  }
+  .t3 .footer-text {
+    position: absolute;
+    bottom: 28px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+
+  /* ===== T4: TESTIMONIAL ===== */
+  .t4 {
+    width: 540px; height: 540px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 56px;
+  }
+  /* Vertical lime stripe on left */
+  .t4 .stripe {
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, #BFFF00, rgba(191,255,0,0.1));
+  }
+  .t4 .content {
+    position: relative; z-index: 1;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-left: 8px;
+  }
+  .t4 .quote-icon {
+    font-size: 64px;
+    color: #BFFF00;
+    line-height: 0.7;
+    font-weight: 900;
+    margin-bottom: 28px;
+    opacity: 0.8;
+  }
+  .t4 .quote {
+    font-size: 21px;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.55;
+    font-weight: 400;
+    flex-grow: 1;
+    letter-spacing: -0.2px;
+  }
+  .t4 .quote strong {
+    color: #BFFF00;
+    font-weight: 600;
+  }
+  .t4 .attribution {
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .t4 .avatar {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, #BFFF00, rgba(191,255,0,0.4));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+    flex-shrink: 0;
+  }
+  .t4 .attr-text .name {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 2px;
+  }
+  .t4 .attr-text .role {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 400;
+  }
+  .t4 .stars-row {
+    margin-left: auto;
+    display: flex;
+    gap: 3px;
+  }
+  .t4 .stars-row .star {
+    width: 14px; height: 14px;
+    background: #BFFF00;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+
+  /* ===== T5: TIPS / EDUCATIONAL ===== */
+  .t5 {
+    width: 540px; height: 540px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 56px;
+  }
+  /* Subtle diagonal lines */
+  .t5 .diag-bg {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 40px,
+      rgba(191,255,0,0.02) 40px,
+      rgba(191,255,0,0.02) 41px
+    );
+  }
+  .t5 .content { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
+  .t5 .header-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .t5 .count-badge {
+    background: #BFFF00;
+    color: #000;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+  .t5 h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 28px;
+    letter-spacing: -0.5px;
+  }
+  .t5 .tips-list {
+    list-style: none;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .t5 .tips-list li {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .t5 .tips-list li:last-child { border-bottom: none; }
+  .t5 .tips-list .step-num {
+    width: 32px; height: 32px;
+    border: 1.5px solid rgba(191,255,0,0.25);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #BFFF00;
+    flex-shrink: 0;
+  }
+  .t5 .tips-list .step-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+  .t5 .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .t5 .footer-row .brand {
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .t5 .footer-row .action {
+    font-size: 11px;
+    color: #BFFF00;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .t5 .footer-row .action .arrow {
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  /* ===== T6: CTA / INVERTED ===== */
+  .t6 {
+    width: 540px; height: 540px;
+    background: #BFFF00;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 56px;
+  }
+  /* Black geometric shape */
+  .t6 .geo {
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: rgba(0,0,0,0.06);
+    border-radius: 50%;
+  }
+  .t6 .geo-2 {
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 350px; height: 350px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 50%;
+  }
+  .t6 .content { position: relative; z-index: 2; }
+  .t6 .eyebrow {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.45);
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .t6 h2 {
+    font-size: 42px;
+    font-weight: 800;
+    color: #000;
+    line-height: 1.05;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+  }
+  .t6 .desc {
+    font-size: 15px;
+    color: rgba(0,0,0,0.55);
+    line-height: 1.6;
+    margin-bottom: 36px;
+    font-weight: 400;
+    max-width: 340px;
+  }
+  .t6 .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #000;
+    color: #BFFF00;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+  }
+  .t6 .cta-btn .arr {
+    font-size: 18px;
+  }
+  .t6 .brand-footer {
+    position: absolute;
+    bottom: 28px; left: 56px;
+    font-size: 10px;
+    color: rgba(0,0,0,0.3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    z-index: 2;
+  }
+
+  /* ===== T7: BEFORE/AFTER or COMPARISON ===== */
+  .t7 {
+    width: 540px; height: 540px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+  }
+  .t7 .split-left {
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 50%;
+    background: #070707;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 36px;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+  .t7 .split-right {
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 36px;
+  }
+  .t7 .split-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .t7 .split-left .split-label { color: rgba(255,255,255,0.25); }
+  .t7 .split-right .split-label { color: #BFFF00; }
+  .t7 .point {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .t7 .split-left .point {
+    color: rgba(255,255,255,0.35);
+  }
+  .t7 .split-right .point {
+    color: rgba(255,255,255,0.75);
+  }
+  .t7 .x-mark {
+    color: #ff4444;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .t7 .check-mark {
+    color: #BFFF00;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .t7 .center-badge {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: #BFFF00;
+    color: #000;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    z-index: 2;
+    text-transform: uppercase;
+  }
+  .t7 .footer-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+  .t7 .footer-bar span {
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ===== T8: MINIMAL QUOTE / ONE-LINER ===== */
+  .t8 {
+    width: 540px; height: 540px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 70px;
+  }
+  .t8 .corner-tl, .t8 .corner-br {
+    position: absolute;
+    width: 60px; height: 60px;
+  }
+  .t8 .corner-tl {
+    top: 40px; left: 40px;
+    border-top: 1.5px solid rgba(191,255,0,0.3);
+    border-left: 1.5px solid rgba(191,255,0,0.3);
+  }
+  .t8 .corner-br {
+    bottom: 40px; right: 40px;
+    border-bottom: 1.5px solid rgba(191,255,0,0.3);
+    border-right: 1.5px solid rgba(191,255,0,0.3);
+  }
+  .t8 .content { position: relative; z-index: 1; }
+  .t8 h2 {
+    font-size: 32px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.45;
+    letter-spacing: -0.3px;
+  }
+  .t8 h2 strong {
+    font-weight: 700;
+    color: #BFFF00;
+  }
+  .t8 .footer-brand {
+    position: absolute;
+    bottom: 44px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Social Media Templates</h1>
+  <p>Aurora Solutions Brand Kit &mdash; Instagram 1080x1080, shown at 50%</p>
+</div>
+
+<div class="templates-grid">
+
+  <!-- T1: Hero / Brand Statement -->
+  <div class="template-wrapper">
+    <span class="template-label">Brand Statement</span>
+    <div class="t1">
+      <div class="orb"></div>
+      <div class="grid-bg"></div>
+      <div class="content">
+        <div class="eyebrow">Aurora Solutions</div>
+        <h2>Premium<br>Engineering.<em>Fraction of<br>the Cost.</em></h2>
+        <p class="sub">Web. Mobile. Branding. Marketing.<br>One team. Global standards.</p>
+      </div>
+      <div class="footer-bar">
+        <span>aurorasolve.com</span>
+        <div class="dot"></div>
+        <span>Addis Ababa</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- T2: Service Highlight -->
+  <div class="template-wrapper">
+    <span class="template-label">Service Highlight</span>
+    <div class="t2">
+      <div class="corner-accent"></div>
+      <div class="icon-area"><div class="icon-inner"></div></div>
+      <div class="tag">Our Services</div>
+      <h2>Web Development<br>That Converts</h2>
+      <ul class="features">
+        <li><span class="check"></span>React & Next.js applications</li>
+        <li><span class="check"></span>E-commerce platforms</li>
+        <li><span class="check"></span>SEO-optimized, mobile-first</li>
+        <li><span class="check"></span>Fast, secure, and scalable</li>
+      </ul>
+      <div class="bottom-bar">
+        <span class="brand">Aurora Solutions</span>
+        <span class="url">aurorasolve.com</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- T3: Stats / Numbers -->
+  <div class="template-wrapper">
+    <span class="template-label">Stats / Social Proof</span>
+    <div class="t3">
+      <div class="ring ring-1"></div>
+      <div class="ring ring-2"></div>
+      <div class="ring ring-3"></div>
+      <div class="content">
+        <div class="big-number">15+</div>
+        <div class="big-label">Projects Delivered</div>
+        <div class="divider-row">
+          <div class="line"></div>
+          <div class="diamond"></div>
+          <div class="line"></div>
+        </div>
+        <div class="sub-stats">
+          <div class="sub-stat">
+            <div class="num">5+</div>
+            <div class="label">Countries</div>
+          </div>
+          <div class="sub-stat">
+            <div class="num">100%</div>
+            <div class="label">Satisfaction</div>
+          </div>
+          <div class="sub-stat">
+            <div class="num">7</div>
+            <div class="label">Services</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-text">Aurora Solutions</div>
+    </div>
+  </div>
+
+  <!-- T4: Testimonial -->
+  <div class="template-wrapper">
+    <span class="template-label">Client Testimonial</span>
+    <div class="t4">
+      <div class="stripe"></div>
+      <div class="content">
+        <div class="quote-icon">&ldquo;</div>
+        <div class="quote">Aurora delivered our platform ahead of schedule. The quality matched agencies charging <strong>3x the price</strong>.</div>
+        <div class="attribution">
+          <div class="avatar">SJ</div>
+          <div class="attr-text">
+            <div class="name">Sarah Johnson</div>
+            <div class="role">CEO, TechVenture Inc.</div>
+          </div>
+          <div class="stars-row">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- T5: Tips / Educational -->
+  <div class="template-wrapper">
+    <span class="template-label">Tips / Value Content</span>
+    <div class="t5">
+      <div class="diag-bg"></div>
+      <div class="content">
+        <div class="header-row">
+          <div></div>
+          <div class="count-badge">5 Signs</div>
+        </div>
+        <h2>Your Website Is Losing<br>You Customers</h2>
+        <ul class="tips-list">
+          <li>
+            <span class="step-num">01</span>
+            <span class="step-text">Takes more than 3 seconds to load</span>
+          </li>
+          <li>
+            <span class="step-num">02</span>
+            <span class="step-text">Not optimized for mobile devices</span>
+          </li>
+          <li>
+            <span class="step-num">03</span>
+            <span class="step-text">No clear call-to-action on homepage</span>
+          </li>
+          <li>
+            <span class="step-num">04</span>
+            <span class="step-text">Outdated design that kills trust</span>
+          </li>
+          <li>
+            <span class="step-num">05</span>
+            <span class="step-text">Invisible on Google search results</span>
+          </li>
+        </ul>
+        <div class="footer-row">
+          <span class="brand">Aurora Solutions</span>
+          <span class="action">Save this <span class="arrow">&rarr;</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- T6: CTA / Inverted -->
+  <div class="template-wrapper">
+    <span class="template-label">CTA / Promo</span>
+    <div class="t6">
+      <div class="geo"></div>
+      <div class="geo-2"></div>
+      <div class="content">
+        <div class="eyebrow">Free Consultation</div>
+        <h2>Let's Build<br>Something<br>Great.</h2>
+        <p class="desc">30 minutes. No commitment. Tell us what you need and we'll map out the next steps.</p>
+        <div class="cta-btn">Book a Call <span class="arr">&rarr;</span></div>
+      </div>
+      <div class="brand-footer">Aurora Solutions</div>
+    </div>
+  </div>
+
+  <!-- T7: Before/After Comparison -->
+  <div class="template-wrapper">
+    <span class="template-label">Comparison / Before-After</span>
+    <div class="t7">
+      <div class="split-left">
+        <div class="split-label">Without Aurora</div>
+        <div class="point"><span class="x-mark">&times;</span> Slow, outdated website</div>
+        <div class="point"><span class="x-mark">&times;</span> Inconsistent branding</div>
+        <div class="point"><span class="x-mark">&times;</span> No mobile experience</div>
+        <div class="point"><span class="x-mark">&times;</span> Lost leads and revenue</div>
+      </div>
+      <div class="split-right">
+        <div class="split-label">With Aurora</div>
+        <div class="point"><span class="check-mark">&check;</span> Fast, modern platform</div>
+        <div class="point"><span class="check-mark">&check;</span> Cohesive brand identity</div>
+        <div class="point"><span class="check-mark">&check;</span> Mobile-first design</div>
+        <div class="point"><span class="check-mark">&check;</span> Conversions that scale</div>
+      </div>
+      <div class="center-badge">VS</div>
+      <div class="footer-bar"><span>Aurora Solutions &mdash; aurorasolve.com</span></div>
+    </div>
+  </div>
+
+  <!-- T8: Minimal Quote / One-Liner -->
+  <div class="template-wrapper">
+    <span class="template-label">Minimal Quote</span>
+    <div class="t8">
+      <div class="corner-tl"></div>
+      <div class="corner-br"></div>
+      <div class="content">
+        <h2>Your business deserves<br><strong>world-class</strong> digital<br>products, not a<br><strong>world-class</strong> invoice.</h2>
+      </div>
+      <div class="footer-brand">Aurora Solutions</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
