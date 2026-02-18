@@ -66,7 +66,7 @@ export async function activateApiKey(id: string): Promise<void> {
   const { error: deactivateError } = await getSupabase()
     .from('api_keys')
     .update({ is_active: false })
-    .neq('id', '')
+    .eq('is_active', true)
 
   if (deactivateError) throw deactivateError
 

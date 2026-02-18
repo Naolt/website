@@ -36,6 +36,8 @@ export function SettingsPanel({ onClose }: SettingsPanelProps) {
   const [model, setModel] = useState('llama-3.3-70b-versatile')
   const [baseUrl, setBaseUrl] = useState('https://api.groq.com/openai/v1')
   const [saving, setSaving] = useState(false)
+  const [activatingId, setActivatingId] = useState<string | null>(null)
+  const [deletingId, setDeletingId] = useState<string | null>(null)
   const [status, setStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null)
 
   const loadKeys = useCallback(async () => {
@@ -87,6 +89,7 @@ export function SettingsPanel({ onClose }: SettingsPanelProps) {
   }, [name, provider, apiKey, model, baseUrl, loadKeys])
 
   const handleActivate = useCallback(async (id: string) => {
+    setActivatingId(id)
     try {
       await fetch('/api/settings', {
         method: 'PUT',
@@ -94,10 +97,13 @@ export function SettingsPanel({ onClose }: SettingsPanelProps) {
         body: JSON.stringify({ action: 'activate', id }),
       })
       await loadKeys()
-    } catch { /* ignore */ }
+    } catch { /* ignore */ } finally {
+      setActivatingId(null)
+    }
   }, [loadKeys])
 
   const handleDelete = useCallback(async (id: string) => {
+    setDeletingId(id)
     try {
       await fetch('/api/settings', {
         method: 'PUT',
@@ -105,7 +111,9 @@ export function SettingsPanel({ onClose }: SettingsPanelProps) {
         body: JSON.stringify({ action: 'delete', id }),
       })
       await loadKeys()
-    } catch { /* ignore */ }
+    } catch { /* ignore */ } finally {
+      setDeletingId(null)
+    }
   }, [loadKeys])
 
   const labelStyle = {
@@ -223,26 +231,31 @@ export function SettingsPanel({ onClose }: SettingsPanelProps) {
                       {!k.is_active && (
                         <button
                           onClick={() => handleActivate(k.id)}
+                          disabled={activatingId === k.id}
                           style={{
                             padding: '4px 10px', borderRadius: 6,
                             border: '1px solid rgba(191,255,0,0.2)', background: 'rgba(191,255,0,0.08)',
                             color: '#BFFF00', fontSize: 10, fontWeight: 600, fontFamily: "'Lexend', sans-serif",
-                            cursor: 'pointer', letterSpacing: 0.5, textTransform: 'uppercase',
+                            cursor: activatingId === k.id ? 'not-allowed' : 'pointer',
+                            letterSpacing: 0.5, textTransform: 'uppercase',
+                            opacity: activatingId === k.id ? 0.5 : 1,
                           }}
                         >
-                          Activate
+                          {activatingId === k.id ? 'Activating...' : 'Activate'}
                         </button>
                       )}
                       <button
                         onClick={() => handleDelete(k.id)}
+                        disabled={deletingId === k.id}
                         style={{
                           padding: '4px 8px', borderRadius: 6,
                           border: '1px solid rgba(255,68,68,0.15)', background: 'rgba(255,68,68,0.05)',
                           color: 'rgba(255,68,68,0.6)', fontSize: 12, fontFamily: "'Lexend', sans-serif",
-                          cursor: 'pointer',
+                          cursor: deletingId === k.id ? 'not-allowed' : 'pointer',
+                          opacity: deletingId === k.id ? 0.5 : 1,
                         }}
                       >
-                        &times;
+                        {deletingId === k.id ? '...' : '×'}
                       </button>
                     </div>
                   </div>
