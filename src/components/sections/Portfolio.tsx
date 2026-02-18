@@ -49,8 +49,8 @@ export async function Portfolio() {
       <Container className="relative z-10">
         <SectionHeading
           subtitle="Our Work"
-          title="Featured Projects"
-          description="Transforming ideas into impactful digital solutions across industries and continents"
+          title="Projects We've Shipped"
+          description="Real products built for real businesses. Here's what we've delivered."
         />
 
         <div className="mt-16 grid md:grid-cols-2 gap-8">

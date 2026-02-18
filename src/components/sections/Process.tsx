@@ -8,25 +8,25 @@ const steps = [
     number: '01',
     icon: MessageSquare,
     title: 'Consultation',
-    description: 'We start by understanding your vision, challenges, and goals to create a tailored strategy.',
+    description: 'We learn about your business, your goals, and what success looks like for you.',
   },
   {
     number: '02',
     icon: Lightbulb,
     title: 'Design',
-    description: 'Our team crafts intuitive designs and strategic plans that align with your brand identity.',
+    description: 'We map out the user experience, create mockups, and get your sign-off before writing a single line of code.',
   },
   {
     number: '03',
     icon: Code,
     title: 'Development',
-    description: 'We build scalable, high-performance solutions using cutting-edge technologies.',
+    description: 'Our engineers build your product with clean code, modern frameworks, and regular progress updates.',
   },
   {
     number: '04',
     icon: Rocket,
     title: 'Launch & Support',
-    description: 'We deploy your solution and provide ongoing support to ensure continued success.',
+    description: 'We ship your product, monitor performance, and stay available for support and iterations.',
   },
 ]
 
@@ -41,8 +41,8 @@ export function Process() {
       <Container className="relative z-10">
         <SectionHeading
           subtitle="How We Work"
-          title="Our Process"
-          description="A proven approach that delivers results from concept to launch"
+          title="From Idea to Launch"
+          description="A clear, proven process that keeps you in the loop at every step."
         />
 
         <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8">

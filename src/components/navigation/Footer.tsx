@@ -119,7 +119,7 @@ export function Footer() {
                 />
               </Link>
               <p className="text-sm text-gray-600 dark:text-white/60 mb-4 leading-relaxed">
-                {settings.description || 'Empowering businesses through digital innovation. From Ethiopia to the world.'}
+                {settings.description || 'Premium engineering, full-service digital solutions. Based in Addis Ababa, serving the world.'}
               </p>
               <div className="flex items-center gap-4">
                 {socialMedia.map((item) => (
@@ -228,7 +228,7 @@ export function Footer() {
                 </div>
               </div>
               <p className="text-sm text-gray-500 dark:text-white/50 text-center md:text-right">
-                Built with purpose, faith, and innovation. 🇪🇹
+                World-class solutions. Engineered in Ethiopia. 🇪🇹
               </p>
             </div>
           </div>

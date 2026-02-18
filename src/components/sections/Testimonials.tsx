@@ -32,9 +32,9 @@ export async function Testimonials() {
 
       <Container className="relative z-10">
         <SectionHeading
-          subtitle="Client Testimonials"
-          title="Trusted by Businesses Worldwide"
-          description="See what our clients say about working with Aurora Solutions"
+          subtitle="Testimonials"
+          title="What Our Clients Say"
+          description="Hear directly from the businesses we've worked with."
         />
 
         <div className="mt-16 grid md:grid-cols-3 gap-8">
@@ -77,7 +77,7 @@ export async function Testimonials() {
                       <div>
                         <p className="font-semibold text-black dark:text-white mb-1">{testimonial.clientName}</p>
                         <p className="text-sm text-gray-500 dark:text-white/60">{testimonial.clientRole}</p>
-                        <span className="inline-block text-sm text-primary font-medium px-2 py-0.5 bg-gray-900 dark:bg-transparent rounded mt-1">
+                        <span className="inline-block text-sm text-primary font-medium px-2 py-0.5 bg-gray-900 dark:bg-white/10 rounded mt-1">
                           {testimonial.company}
                         </span>
                       </div>

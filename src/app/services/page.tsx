@@ -5,15 +5,16 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 import { FadeIn } from '@/components/animations/FadeIn'
 import { ArrowRight, CheckCircle } from 'lucide-react'
 import { servicesData } from '@/lib/services-data'
+import { CAL_URL } from '@/lib/config'
 
 export const metadata: Metadata = {
-  title: 'Our Services | Aurora Solutions - Digital Solutions for Growing Businesses',
+  title: 'Our Services | Aurora Solutions - Everything You Need Under One Roof',
   description:
-    'Comprehensive digital services including web development, mobile apps, ERP/CRM systems, branding, digital marketing, design, and video production. Transform your business with Aurora Solutions.',
+    'Web development, mobile apps, ERP/CRM systems, branding, digital marketing, design, and video production. One team, global standards, competitive rates.',
   openGraph: {
     title: 'Our Services | Aurora Solutions',
     description:
-      'Comprehensive digital services for growing businesses across Ethiopia, Kenya, Canada, Germany, and the USA.',
+      'Full-service digital solutions for businesses across Ethiopia, Kenya, Canada, Germany, and the USA.',
     type: 'website',
   },
 }
@@ -53,14 +54,14 @@ export default function ServicesPage() {
 
           <FadeIn delay={0.1}>
             <h1 className="text-4xl md:text-6xl font-bold text-black dark:text-white mb-6">
-              Comprehensive Digital Solutions
+              Everything You Need Under One Roof
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.2}>
             <p className="text-xl text-gray-600 dark:text-white/70 leading-relaxed">
-              From strategy to execution, we provide end-to-end digital services that transform
-              businesses. Choose a service below to learn more about how we can help you grow.
+              Design, development, branding, marketing. One team that handles it all.
+              Choose a service below to see how we can help.
             </p>
           </FadeIn>
         </div>
@@ -115,18 +116,20 @@ export default function ServicesPage() {
           <div className="bg-gray-100 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-gray-200 dark:border-white/10">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black dark:text-white">
-                Ready to Transform Your Business?
+                Ready to Get Started?
               </h2>
               <p className="text-gray-600 dark:text-white/70 text-lg mb-8">
-                Let&apos;s discuss your project and create a customized solution that drives results.
+                Tell us about your project. We will put together a proposal within 48 hours.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/#contact"
+                <a
+                  href={CAL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-block px-8 py-3 bg-primary text-black font-semibold rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
                 >
-                  Get Started
-                </Link>
+                  Book a Free Consultation
+                </a>
                 <a
                   href="https://wa.me/251910940419"
                   target="_blank"
@@ -162,7 +165,7 @@ export default function ServicesPage() {
                 </div>
                 <h3 className="text-xl font-semibold text-black dark:text-white mb-2">Service Areas</h3>
                 <p className="text-gray-500 dark:text-white/60">
-                  Comprehensive digital solutions under one roof
+                  Every digital need covered by one team
                 </p>
               </div>
               <div className="text-center">
@@ -171,7 +174,7 @@ export default function ServicesPage() {
                 </div>
                 <h3 className="text-xl font-semibold text-black dark:text-white mb-2">Client Satisfaction</h3>
                 <p className="text-gray-500 dark:text-white/60">
-                  Dedicated to delivering excellence every time
+                  We deliver what we promise, every time
                 </p>
               </div>
             </div>

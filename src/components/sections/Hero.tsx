@@ -6,6 +6,7 @@ import { Container } from '@/components/ui/Container'
 import { FadeIn } from '@/components/animations/FadeIn'
 import { SlideIn } from '@/components/animations/SlideIn'
 import { Counter } from '@/components/animations/Counter'
+import { CAL_URL } from '@/lib/config'
 
 export function Hero() {
   const scrollToSection = (id: string) => {
@@ -57,16 +58,16 @@ export function Hero() {
           <FadeIn delay={0.1}>
             <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 dark:bg-primary/10 backdrop-blur-sm rounded-full border border-gray-900 dark:border-primary/20 text-primary text-sm font-medium mb-8 shadow-lg shadow-primary/5">
               <Sparkles className="w-4 h-4" />
-              <span>Digital Innovation from Ethiopia 🇪🇹</span>
+              <span>World-Class Solutions. Engineered in Ethiopia. 🇪🇹</span>
             </div>
           </FadeIn>
 
           {/* Main Heading */}
           <FadeIn delay={0.2}>
             <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight">
-              <span className="text-gray-900 dark:text-white">Digital Solutions That</span>
+              <span className="text-gray-900 dark:text-white">Premium Engineering.</span>
               <br />
-              <span className="text-primary">Transform</span>
+              <span className="text-primary">Fraction of the Cost.</span>
             </h1>
           </FadeIn>
 
@@ -79,27 +80,32 @@ export function Hero() {
 
           <FadeIn delay={0.4}>
             <p className="text-lg md:text-xl text-gray-700 dark:text-white/70 max-w-2xl mx-auto mb-12">
-              We build world-class web apps, mobile solutions, ERP systems, and brands that help businesses compete globally
+              Elite engineers delivering web, mobile, and business solutions — built to perform, scale, and last.
             </p>
           </FadeIn>
 
           {/* CTAs */}
           <SlideIn direction="up" delay={0.5}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <Button
-                size="lg"
-                onClick={() => scrollToSection('contact')}
-                className="px-6 py-3 h-auto bg-primary text-black hover:bg-primary/90 text-base font-semibold shadow-xl shadow-primary/20 hover:scale-105 transition-transform"
+              <a
+                href={CAL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Start Your Project
-              </Button>
+                <Button
+                  size="lg"
+                  className="px-6 py-3 h-auto bg-primary text-black hover:bg-primary/90 text-base font-semibold shadow-xl shadow-primary/20 hover:scale-105 transition-transform"
+                >
+                  Book a Free Consultation
+                </Button>
+              </a>
               <Button
                 size="lg"
                 variant="outline"
                 onClick={() => scrollToSection('portfolio')}
                 className="px-6 py-3 h-auto bg-transparent text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-white/10 border-2 border-gray-300 dark:border-white/30 hover:border-primary/50 text-base font-medium backdrop-blur-sm transition-all"
               >
-                View Our Work
+                See Our Work
               </Button>
             </div>
           </SlideIn>
@@ -141,7 +147,7 @@ export function Hero() {
               className="flex flex-col items-center gap-2 text-gray-500 dark:text-white/50 hover:text-gray-700 dark:hover:text-primary transition-colors group mx-auto"
               aria-label="Scroll to next section"
             >
-              <span className="text-sm font-medium">Scroll to explore</span>
+              <span className="text-sm font-medium">Discover more</span>
               <ArrowDown className="w-6 h-6 animate-bounce group-hover:text-gray-700 dark:group-hover:text-primary" />
             </button>
           </FadeIn>

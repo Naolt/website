@@ -90,8 +90,8 @@ export function Contact() {
       <Container className="relative z-10">
         <SectionHeading
           subtitle="Get In Touch"
-          title="Let's Build Something Amazing"
-          description="Ready to transform your business? Reach out and let's discuss your project"
+          title="Start a Conversation"
+          description="Tell us what you need. We will get back to you within 24 hours."
         />
 
         <div className="mt-16 grid lg:grid-cols-2 gap-12">
@@ -102,8 +102,8 @@ export function Contact() {
                 <div
                   className={`p-4 rounded-lg border ${
                     submitMessage.type === 'success'
-                      ? 'bg-primary/10 border-primary/30 text-white'
-                      : 'bg-red-500/10 border-red-500/30 text-red-200'
+                      ? 'bg-primary/10 border-primary/30 text-gray-900 dark:text-white'
+                      : 'bg-red-500/10 border-red-500/30 text-red-700 dark:text-red-200'
                   }`}
                 >
                   {submitMessage.text}

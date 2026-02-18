@@ -27,9 +27,9 @@ export function Services() {
 
       <Container className="relative z-10">
         <SectionHeading
-          subtitle="What We Do"
-          title="Comprehensive Digital Services"
-          description="From strategy to execution, we provide end-to-end digital solutions that transform businesses"
+          subtitle="Our Services"
+          title="Everything You Need Under One Roof"
+          description="Design, development, branding, marketing — one team that handles it all."
         />
 
         <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">

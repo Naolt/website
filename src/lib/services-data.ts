@@ -35,9 +35,9 @@ export const servicesData: Service[] = [
     icon: Code2,
     title: 'Web Development',
     shortDescription:
-      'Fast, modern websites and e-commerce platforms that convert visitors into customers.',
+      'High-performance websites and web apps built with modern frameworks. Fast, secure, and optimized to convert.',
     fullDescription:
-      'We build high-performance websites and web applications using cutting-edge technologies. From simple landing pages to complex e-commerce platforms, we create digital experiences that are fast, secure, and optimized for conversions. Our websites are responsive, SEO-friendly, and built to scale with your business.',
+      'We build websites and web applications that load fast, rank well, and convert visitors into customers. Whether you need a landing page, a full e-commerce platform, or a complex web app, we deliver clean, responsive, and scalable code that grows with your business.',
     features: [
       'React & Next.js Development',
       'E-commerce Solutions (Shopify, WooCommerce, Custom)',
@@ -112,9 +112,9 @@ export const servicesData: Service[] = [
     icon: Smartphone,
     title: 'Mobile App Development',
     shortDescription:
-      'Native and cross-platform apps with beautiful UI and secure, optimized code.',
+      'Native and cross-platform apps for iOS and Android. Designed to perform, built to scale.',
     fullDescription:
-      'Transform your ideas into powerful mobile applications that users love. We develop native iOS and Android apps, as well as cross-platform solutions using Flutter and React Native. Our apps are designed for performance, security, and exceptional user experience, from concept to App Store deployment.',
+      'We build mobile apps that people actually want to use. Native iOS and Android, or cross-platform with Flutter and React Native. From concept to App Store deployment, we handle the full lifecycle with a focus on performance, security, and a smooth user experience.',
     features: [
       'iOS & Android Native Development',
       'Cross-Platform (Flutter & React Native)',
@@ -190,9 +190,9 @@ export const servicesData: Service[] = [
     icon: Database,
     title: 'ERP / CRM Systems',
     shortDescription:
-      'Custom business solutions that automate workflows and provide real-time insights.',
+      'Custom platforms that centralize your data, automate workflows, and give you real-time control.',
     fullDescription:
-      'Streamline your business operations with custom ERP and CRM systems tailored to your unique processes. We build powerful management platforms that centralize your data, automate workflows, and provide actionable insights. From inventory management to customer relationships, we help you work smarter, not harder.',
+      'We build custom ERP and CRM systems tailored to how your business actually works. Centralize your data, automate repetitive tasks, and get real-time insights into every part of your operation. From inventory to customer relationships, we help you run things more efficiently.',
     features: [
       'Custom ERP Development',
       'CRM Solutions',
@@ -270,9 +270,9 @@ export const servicesData: Service[] = [
     icon: Palette,
     title: 'Branding & Strategy',
     shortDescription:
-      'Memorable brands that connect with your audience and stand out in the market.',
+      'Strategic brand identities that position your business to stand out and stay memorable.',
     fullDescription:
-      'Build a brand that resonates. We create distinctive brand identities that capture your essence and connect with your target audience. From logo design to comprehensive brand guidelines, we ensure consistency across all touchpoints. Our strategic approach combines creativity with market insights to position your brand for success.',
+      'We create brand identities that look sharp and communicate clearly. Logo, colors, typography, guidelines, messaging. Everything you need to present a consistent, professional image across every touchpoint. Strategy first, design second.',
     features: [
       'Logo Design & Brand Identity',
       'Brand Strategy & Positioning',
@@ -339,9 +339,9 @@ export const servicesData: Service[] = [
     icon: TrendingUp,
     title: 'Digital Marketing',
     shortDescription:
-      'Data-driven campaigns that grow your visibility, engagement, and conversions.',
+      'Targeted campaigns that drive traffic, grow your audience, and turn clicks into customers.',
     fullDescription:
-      'Amplify your digital presence with strategic marketing campaigns that deliver results. We combine creativity with data-driven insights to increase your visibility, engage your audience, and drive conversions. From social media management to SEO and content strategy, we help you reach the right people at the right time.',
+      'We run marketing campaigns that bring in real traffic and real leads. Social media, SEO, content, paid ads. We track everything and optimize based on what the data tells us, not guesswork.',
     features: [
       'Social Media Management',
       'Content Strategy & Creation',
@@ -418,9 +418,9 @@ export const servicesData: Service[] = [
     icon: Sparkles,
     title: 'Design & Creative',
     shortDescription:
-      'High-quality visuals and motion design that elevate your brand presence.',
+      'Sharp visuals, motion design, and creative assets that give your brand a professional edge.',
     fullDescription:
-      'Captivate your audience with stunning visual content. Our creative team produces high-quality graphics, social media content, and motion designs that make your brand stand out. From eye-catching social posts to animated explainer videos, we turn ideas into visual stories that resonate.',
+      'Professional graphics, social media content, motion design, and print materials. Our creative team produces visual assets that make your brand look polished and consistent across every platform.',
     features: [
       'Graphic Design (Posters, Flyers, Brochures)',
       'Social Media Graphics & Templates',
@@ -489,9 +489,9 @@ export const servicesData: Service[] = [
     icon: Video,
     title: 'Video Production',
     shortDescription:
-      'Cinematic video content through Aurora Video Production that brings your message to life.',
+      'Cinematic brand stories, event coverage, and social media videos by Aurora Video Production.',
     fullDescription:
-      'Tell your story through the power of video. Aurora Video Production delivers cinematic video content that captivates audiences and drives results. From brand stories to event coverage, we handle everything from concept to final edit. Our team combines technical expertise with creative storytelling to produce videos that leave lasting impressions.',
+      'Aurora Video Production handles everything from concept to final cut. Brand stories, event coverage, corporate videos, social media content. Professional equipment, skilled crew, and a focus on storytelling that actually connects with your audience.',
     features: [
       'Brand Story Videos',
       'Product & Service Videos',

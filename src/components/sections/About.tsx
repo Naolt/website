@@ -23,9 +23,9 @@ export function About() {
 
       <Container className="relative z-10">
         <SectionHeading
-          subtitle="Why Choose Us"
-          title="Global-Class Digital Solutions"
-          description="Delivering excellence in technology, design, and innovation across continents"
+          subtitle="Why Aurora"
+          title="One Team. Every Digital Need."
+          description="From web and mobile to branding and business systems — we handle it all so you don't have to."
         />
 
         <div className="mt-16 space-y-16">
@@ -34,10 +34,10 @@ export function About() {
             <div className="max-w-4xl mx-auto">
               <div className="text-center">
                 <p className="text-lg md:text-xl text-gray-700 dark:text-white/80 leading-relaxed">
-                  We combine <span className="font-semibold text-gray-900 dark:text-primary">cutting-edge technology</span> with{' '}
-                  <span className="font-semibold text-gray-900 dark:text-primary">strategic thinking</span> to deliver digital solutions that drive real business results.
-                  From startups to established enterprises across{' '}
-                  <span className="font-semibold text-black dark:text-white">5+ countries</span>, we help businesses compete globally.
+                  We&apos;re a full-service digital team based in <span className="font-semibold text-black dark:text-white">Addis Ababa</span>, working with businesses across{' '}
+                  <span className="font-semibold text-black dark:text-white">5+ countries</span>. Our engineers deliver at the{' '}
+                  <span className="font-semibold text-gray-900 dark:text-primary">highest standards</span> — and because we&apos;re based in Ethiopia, you get{' '}
+                  <span className="font-semibold text-gray-900 dark:text-primary">premium quality</span> without the premium price tag.
                 </p>
               </div>
             </div>
@@ -52,7 +52,7 @@ export function About() {
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-black dark:text-white">Technical Excellence</h3>
                 <p className="text-gray-600 dark:text-white/70">
-                  Modern tech stack, best practices, and scalable architecture. We build solutions that perform, scale, and last.
+                  Modern frameworks, clean architecture, and battle-tested practices. Every product we ship is built to perform under pressure and scale with your growth.
                 </p>
               </div>
             </SlideIn>
@@ -64,7 +64,7 @@ export function About() {
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-black dark:text-white">Global Standards</h3>
                 <p className="text-gray-600 dark:text-white/70">
-                  International quality meets local understanding. We deliver world-class solutions tailored to your market.
+                  We deliver to the same standards expected by companies in the US, Europe, and beyond. No shortcuts, no compromises.
                 </p>
               </div>
             </SlideIn>
@@ -76,7 +76,7 @@ export function About() {
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-black dark:text-white">Results-Driven</h3>
                 <p className="text-gray-600 dark:text-white/70">
-                  Your success is our success. We focus on measurable outcomes that drive growth and ROI.
+                  We measure success by your success. Every decision — from tech stack to UX — is made to drive real, measurable business outcomes.
                 </p>
               </div>
             </SlideIn>

@@ -14,9 +14,9 @@ const lexend = Lexend({
 })
 
 export const metadata: Metadata = {
-  title: 'Aurora Solutions | Digital Innovation in Ethiopia',
+  title: 'Aurora Solutions | Premium Engineering. Fraction of the Cost.',
   description:
-    'Leading digital solutions company in Ethiopia. We offer web development, mobile apps, ERP/CRM systems, branding, and IT consulting services. Serving clients across Ethiopia, Kenya, Canada, Germany, and USA.',
+    'Elite engineers in Ethiopia delivering web development, mobile apps, ERP/CRM systems, branding, and digital marketing to global standards. Serving clients across Ethiopia, Kenya, Canada, Germany, and USA.',
   keywords: [
     'web development ethiopia',
     'mobile app development',
@@ -36,24 +36,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://aurorasolve.com',
-    title: 'Aurora Solutions | Digital Innovation in Ethiopia',
+    title: 'Aurora Solutions | Premium Engineering. Fraction of the Cost.',
     description:
-      'Empowering businesses through digital innovation. Web development, mobile apps, ERP/CRM systems, and IT consulting.',
+      'Elite engineers delivering web, mobile, and business solutions to global standards. Based in Ethiopia, serving the world.',
     siteName: 'Aurora Solutions',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Aurora Solutions - Digital Innovation in Ethiopia',
+        alt: 'Aurora Solutions - Premium Engineering. Fraction of the Cost.',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Aurora Solutions | Digital Innovation in Ethiopia',
+    title: 'Aurora Solutions | Premium Engineering. Fraction of the Cost.',
     description:
-      'Empowering businesses through digital innovation. Web development, mobile apps, ERP/CRM systems, and IT consulting.',
+      'Elite engineers delivering web, mobile, and business solutions to global standards. Based in Ethiopia, serving the world.',
     images: ['/og-image.png'],
   },
   robots: {
@@ -80,7 +80,7 @@ export default function RootLayout({
     name: 'Aurora Solutions',
     url: 'https://aurorasolve.com',
     logo: 'https://aurorasolve.com/images/logo-light.png',
-    description: 'Leading digital solutions company providing web development, mobile apps, ERP/CRM systems, branding, and IT consulting services.',
+    description: 'Elite engineers in Ethiopia delivering web, mobile, ERP/CRM, branding, and digital marketing solutions to global standards.',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'ET',

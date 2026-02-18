@@ -9,27 +9,27 @@ import { useState } from 'react'
 const faqs = [
   {
     question: 'What services does Aurora Solutions offer?',
-    answer: 'We offer comprehensive digital solutions including web development, mobile app development, ERP/CRM systems, branding & strategy, digital marketing, design & creative services, and video production. We serve clients across Ethiopia, Kenya, Canada, Germany, and the USA.',
+    answer: 'We cover web development, mobile apps, ERP/CRM systems, branding, digital marketing, design, and video production. One team, every digital need.',
   },
   {
     question: 'How long does it take to build a website or app?',
-    answer: 'Project timelines vary based on complexity. A basic website typically takes 2-4 weeks, while a custom web application or mobile app can take 2-4 months. We provide detailed timelines during our initial consultation and keep you updated throughout the development process.',
+    answer: 'A standard website takes 2 to 4 weeks. Custom web apps and mobile apps typically take 2 to 4 months. We give you a clear timeline upfront and keep you updated throughout.',
   },
   {
-    question: 'Can you work with international clients remotely?',
-    answer: 'Absolutely! We have successfully delivered projects for clients across 5+ countries. We use modern collaboration tools, maintain clear communication, and work across different time zones to ensure smooth project delivery regardless of location.',
+    question: 'Do you work with international clients?',
+    answer: 'Yes. We work with businesses across Ethiopia, Kenya, Canada, Germany, and the USA. We use modern collaboration tools and communicate across time zones without friction.',
   },
   {
     question: 'What is your pricing model?',
-    answer: 'Our pricing is project-based and depends on scope, complexity, and timeline. We offer competitive rates while maintaining international quality standards. We also provide flexible payment options including milestone-based payments. Contact us for a free consultation and customized quote.',
+    answer: 'Project-based pricing that depends on scope and complexity. Because our team is based in Ethiopia, you get global-standard quality at significantly lower rates than US or European agencies. We offer milestone-based payments for flexibility.',
   },
   {
-    question: 'Do you provide ongoing support after project completion?',
-    answer: 'Yes! We offer maintenance and support packages for all our projects. This includes bug fixes, updates, security patches, and feature enhancements. We believe in building long-term partnerships with our clients and ensuring your digital solutions continue to perform optimally.',
+    question: 'Do you provide ongoing support after launch?',
+    answer: 'Yes. Every project comes with a post-launch support window. After that, we offer maintenance packages that cover bug fixes, updates, security patches, and new features.',
   },
   {
-    question: 'How do I get started with Aurora Solutions?',
-    answer: 'Getting started is easy! Contact us via WhatsApp, email, or our contact form. We\'ll schedule a free consultation to understand your needs, provide expert recommendations, and create a customized proposal. No obligation, just expert advice to help your business grow.',
+    question: 'How do I get started?',
+    answer: 'Reach out through our contact form, email, or WhatsApp. We will set up a free consultation to understand your needs and put together a proposal. No commitment required.',
   },
 ]
 
@@ -63,7 +63,7 @@ export function FAQ() {
         <SectionHeading
           subtitle="FAQ"
           title="Frequently Asked Questions"
-          description="Got questions? We've got answers. Find everything you need to know about working with Aurora Solutions."
+          description="Common questions about working with us."
         />
 
         <div className="mt-16 max-w-4xl mx-auto">

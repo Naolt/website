@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/Container'
 import { cn } from '@/lib/utils'
 import { useTheme } from '@/components/ThemeProvider'
+import { CAL_URL } from '@/lib/config'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -143,12 +144,17 @@ export function Navbar() {
               )}
             </button>
 
-            <Button
-              onClick={() => handleNavClick('/#contact')}
-              className="bg-primary text-black font-semibold hover:bg-primary/90 shadow-lg"
+            <a
+              href={CAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Get Started
-            </Button>
+              <Button
+                className="bg-primary text-black font-semibold hover:bg-primary/90 shadow-lg"
+              >
+                Book a Call
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button & Theme Toggle */}
@@ -211,12 +217,17 @@ export function Navbar() {
                 )
               })}
               <div className="px-4 pt-2">
-                <Button
-                  onClick={() => handleNavClick('/#contact')}
-                  className="w-full bg-primary text-black hover:bg-primary/90"
+                <a
+                  href={CAL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Get Started
-                </Button>
+                  <Button
+                    className="w-full bg-primary text-black hover:bg-primary/90"
+                  >
+                    Book a Call
+                  </Button>
+                </a>
               </div>
             </div>
           </Container>
