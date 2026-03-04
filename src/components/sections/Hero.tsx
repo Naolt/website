@@ -58,29 +58,37 @@ export function Hero() {
           <FadeIn delay={0.1}>
             <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 dark:bg-primary/10 backdrop-blur-sm rounded-full border border-gray-900 dark:border-primary/20 text-primary text-sm font-medium mb-8 shadow-lg shadow-primary/5">
               <Sparkles className="w-4 h-4" />
-              <span>World-Class Solutions. Engineered in Ethiopia. 🇪🇹</span>
+              <span>Dedicated Engineering Teams for Global Startups & SMEs 🇪🇹</span>
             </div>
           </FadeIn>
 
-          {/* Main Heading */}
+          {/* Main Heading — answers WHAT */}
           <FadeIn delay={0.2}>
             <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight">
-              <span className="text-gray-900 dark:text-white">Premium Engineering.</span>
+              <span className="text-gray-900 dark:text-white">Full-Cycle Digital</span>
               <br />
-              <span className="text-primary">Fraction of the Cost.</span>
+              <span className="text-primary">Product Development.</span>
             </h1>
           </FadeIn>
 
-          {/* Subheading */}
-          {/* <FadeIn delay={0.3}>
-            <p className="text-xl md:text-2xl lg:text-3xl text-gray-800 dark:text-white/90 max-w-3xl mx-auto mb-4 font-medium">
-              Ethiopian Businesses for Global Success
-            </p>
-          </FadeIn> */}
+          {/* Service pills — instant visual of what exactly */}
+          <FadeIn delay={0.3}>
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+              {['Strategy', 'Design', 'Engineering', 'Cinematic Video'].map((s) => (
+                <span
+                  key={s}
+                  className="px-4 py-1.5 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-full text-sm font-medium text-gray-700 dark:text-white/70"
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
+          </FadeIn>
 
+          {/* Subtext — answers WHO and the cost advantage */}
           <FadeIn delay={0.4}>
             <p className="text-lg md:text-xl text-gray-700 dark:text-white/70 max-w-2xl mx-auto mb-12">
-              Elite engineers delivering web, mobile, and business solutions — built to perform, scale, and last.
+              We partner with global startups and SMEs to deliver end-to-end web, mobile, ERP, and high-impact video — at 50–70% less than US or European rates, without compromising quality or communication.
             </p>
           </FadeIn>
 
@@ -96,7 +104,7 @@ export function Hero() {
                   size="lg"
                   className="px-6 py-3 h-auto bg-primary text-black hover:bg-primary/90 text-base font-semibold shadow-xl shadow-primary/20 hover:scale-105 transition-transform"
                 >
-                  Book a Free Consultation
+                  Book a Discovery Workshop
                 </Button>
               </a>
               <Button

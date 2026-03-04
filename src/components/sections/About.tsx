@@ -2,7 +2,7 @@ import { Container } from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { FadeIn } from '@/components/animations/FadeIn'
 import { SlideIn } from '@/components/animations/SlideIn'
-import { Users, Target, Heart } from 'lucide-react'
+import { Users, Target, Heart, Clock } from 'lucide-react'
 
 export function About() {
   return (
@@ -44,7 +44,7 @@ export function About() {
           </FadeIn>
 
           {/* Core Strengths Grid */}
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <SlideIn direction="left" delay={0.1}>
               <div className="bg-gray-100 dark:bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-gray-200 dark:border-white/10 hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-white/10 transition-all group">
                 <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors">
@@ -64,19 +64,31 @@ export function About() {
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-black dark:text-white">Global Standards</h3>
                 <p className="text-gray-600 dark:text-white/70">
-                  We deliver to the same standards expected by companies in the US, Europe, and beyond. No shortcuts, no compromises.
+                  We deliver to the same standards expected by companies in the US, Europe, and beyond. No shortcuts, no compromises — Agile sprints, code reviews, full documentation.
                 </p>
               </div>
             </SlideIn>
 
-            <SlideIn direction="right" delay={0.3}>
+            <SlideIn direction="up" delay={0.3}>
+              <div className="bg-gray-100 dark:bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-gray-200 dark:border-white/10 hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-white/10 transition-all group">
+                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors">
+                  <Clock className="w-6 h-6 text-gray-700 dark:text-primary" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-black dark:text-white">Timezone Advantage</h3>
+                <p className="text-gray-600 dark:text-white/70">
+                  Based in GMT+3 (EAT), we naturally overlap with European business hours and can flex for US morning calls. Daily updates via Slack, tasks on Jira, code on GitHub.
+                </p>
+              </div>
+            </SlideIn>
+
+            <SlideIn direction="right" delay={0.4}>
               <div className="bg-gray-100 dark:bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-gray-200 dark:border-white/10 hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-white/10 transition-all group">
                 <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors">
                   <Heart className="w-6 h-6 text-gray-700 dark:text-primary" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-black dark:text-white">Results-Driven</h3>
                 <p className="text-gray-600 dark:text-white/70">
-                  We measure success by your success. Every decision — from tech stack to UX — is made to drive real, measurable business outcomes.
+                  We measure success by your success. Every decision — from tech stack to UX — is made to drive real, measurable business outcomes. You own 100% of the code.
                 </p>
               </div>
             </SlideIn>

@@ -14,19 +14,24 @@ const lexend = Lexend({
 })
 
 export const metadata: Metadata = {
-  title: 'Aurora Solutions | Premium Engineering. Fraction of the Cost.',
+  title: 'Aurora Solutions | Offshore Software Development Ethiopia',
   description:
-    'Elite engineers in Ethiopia delivering web development, mobile apps, ERP/CRM systems, branding, and digital marketing to global standards. Serving clients across Ethiopia, Kenya, Canada, Germany, and USA.',
+    'Offshore software development agency based in Addis Ababa, Ethiopia. Elite engineers delivering web, mobile, ERP/CRM, and AI solutions at 50–70% less than US or European rates. GDPR-aligned. IP fully yours.',
   keywords: [
+    'offshore software development ethiopia',
+    'software outsourcing ethiopia',
+    'outsource software development africa',
+    'managed development team addis ababa',
     'web development ethiopia',
-    'mobile app development',
-    'ERP system',
-    'CRM software',
-    'branding agency ethiopia',
-    'digital marketing',
-    'IT consulting',
+    'mobile app development ethiopia',
+    'ERP system ethiopia',
+    'CRM software addis ababa',
+    'GDPR compliant developers ethiopia',
     'software company addis ababa',
+    'offshore react developers ethiopia',
+    'cost effective software development africa',
     'Aurora Solutions',
+    'aurorasolve',
   ],
   authors: [{ name: 'Aurora Solutions' }],
   creator: 'Aurora Solutions',
@@ -36,9 +41,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://aurorasolve.com',
-    title: 'Aurora Solutions | Premium Engineering. Fraction of the Cost.',
+    title: 'Aurora Solutions | Offshore Software Development Ethiopia',
     description:
-      'Elite engineers delivering web, mobile, and business solutions to global standards. Based in Ethiopia, serving the world.',
+      'Offshore software agency in Addis Ababa. Elite engineers at 50–70% less than US rates — web, mobile, ERP, and AI. IP fully yours. GDPR-aligned.',
     siteName: 'Aurora Solutions',
     images: [
       {
@@ -51,9 +56,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Aurora Solutions | Premium Engineering. Fraction of the Cost.',
+    title: 'Aurora Solutions | Offshore Software Development Ethiopia',
     description:
-      'Elite engineers delivering web, mobile, and business solutions to global standards. Based in Ethiopia, serving the world.',
+      'Offshore software agency in Addis Ababa. Elite engineers at 50–70% less than US rates — web, mobile, ERP, and AI. IP fully yours.',
     images: ['/og-image.png'],
   },
   robots: {

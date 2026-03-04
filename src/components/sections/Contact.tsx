@@ -4,7 +4,7 @@ import { Container } from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { FadeIn } from '@/components/animations/FadeIn'
 import { SlideIn } from '@/components/animations/SlideIn'
-import { Mail, Phone, MapPin, Send, Loader2 } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, Loader2, Clock } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -285,6 +285,17 @@ export function Contact() {
                   <div>
                     <p className="text-sm text-gray-500 dark:text-white/60 mb-1">Location</p>
                     <p className="text-black dark:text-white">Addis Ababa, Ethiopia 🇪🇹</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-6 h-6 text-gray-700 dark:text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500 dark:text-white/60 mb-1">Working Hours</p>
+                    <p className="text-black dark:text-white">Mon – Fri, 9am – 6pm EAT</p>
+                    <p className="text-sm text-gray-500 dark:text-white/60 mt-0.5">GMT+3 · Overlaps with EU hours</p>
                   </div>
                 </div>
               </div>

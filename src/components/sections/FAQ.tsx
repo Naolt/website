@@ -8,28 +8,36 @@ import { useState } from 'react'
 
 const faqs = [
   {
+    question: 'Who owns the code and intellectual property after the project is delivered?',
+    answer: 'You do — 100%. Every project is delivered under a "Work for Hire" agreement, meaning all source code, design assets, and documentation are fully transferred to you upon final payment. We sign NDAs on every project and provide full repository access at handoff. No lock-in, no hidden retentions.',
+  },
+  {
+    question: 'How much can I save compared to a US or European agency?',
+    answer: 'Typically 50–70% compared to North American rates, and 30–50% compared to Eastern European agencies — without sacrificing quality. Our engineers work at global standards because that is the only standard we know. The cost advantage comes from Ethiopia\'s lower cost of living, not from cutting corners. Junior developers start around $15–25/hr, senior engineers $45–75/hr.',
+  },
+  {
+    question: 'How do you work with international clients across time zones?',
+    answer: 'We operate on East Africa Time (EAT, GMT+3), which naturally overlaps with European business hours and accommodates early-morning calls for US teams. We work on Agile/Scrum methodology with two-week sprints, daily async updates via Slack, task tracking in Jira, and code reviews on GitHub. You always know what is happening — no black box.',
+  },
+  {
+    question: 'How do you handle data security and GDPR compliance?',
+    answer: 'Ethiopia enacted its Personal Data Protection Proclamation (No. 1321/2024) in April 2024, which is closely modelled on the EU GDPR — covering consent, data minimisation, breach notification, and cross-border transfer rules. We sign NDAs with every client, follow secure development practices, and can accommodate GDPR-compliant data handling requirements for EU-based projects.',
+  },
+  {
     question: 'What services does Aurora Solutions offer?',
-    answer: 'We cover web development, mobile apps, ERP/CRM systems, branding, digital marketing, design, and video production. One team, every digital need.',
+    answer: 'Web development, mobile apps (iOS & Android), ERP/CRM systems, branding & visual identity, digital marketing, graphic design, and video production. One integrated team — no juggling multiple vendors.',
   },
   {
-    question: 'How long does it take to build a website or app?',
-    answer: 'A standard website takes 2 to 4 weeks. Custom web apps and mobile apps typically take 2 to 4 months. We give you a clear timeline upfront and keep you updated throughout.',
+    question: 'How long does a project typically take?',
+    answer: 'A standard website takes 2–4 weeks. Custom web apps and mobile apps typically take 2–4 months. ERP/CRM systems run 3–6 months depending on complexity. We give you a detailed timeline before we start and send progress updates throughout every sprint.',
   },
   {
-    question: 'Do you work with international clients?',
-    answer: 'Yes. We work with businesses across Ethiopia, Kenya, Canada, Germany, and the USA. We use modern collaboration tools and communicate across time zones without friction.',
-  },
-  {
-    question: 'What is your pricing model?',
-    answer: 'Project-based pricing that depends on scope and complexity. Because our team is based in Ethiopia, you get global-standard quality at significantly lower rates than US or European agencies. We offer milestone-based payments for flexibility.',
-  },
-  {
-    question: 'Do you provide ongoing support after launch?',
-    answer: 'Yes. Every project comes with a post-launch support window. After that, we offer maintenance packages that cover bug fixes, updates, security patches, and new features.',
+    question: 'Do you support local Ethiopian businesses and NGOs?',
+    answer: 'Absolutely. We offer flexible local pricing, support Telebirr and Chapa for payments, and can provide Amharic-language support for local projects. We understand the Ethiopian business ecosystem — from Merkato retail digitisation to Telebirr integrations — and we are priced to be accessible to local SMEs and NGOs.',
   },
   {
     question: 'How do I get started?',
-    answer: 'Reach out through our contact form, email, or WhatsApp. We will set up a free consultation to understand your needs and put together a proposal. No commitment required.',
+    answer: 'Book a free 30-minute consultation through our calendar link, or send us a message via the contact form, email, or WhatsApp. We will discuss your needs, scope the project, and send you a clear proposal — usually within 48 hours. No commitment required.',
   },
 ]
 
