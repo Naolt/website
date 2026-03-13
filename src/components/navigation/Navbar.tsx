@@ -56,7 +56,11 @@ export function Navbar() {
     setMobileMenuOpen(false)
 
     if (href === '/') {
-      router.push('/')
+      if (isHomePage) {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else {
+        router.push('/')
+      }
       return
     }
 

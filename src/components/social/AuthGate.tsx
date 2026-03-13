@@ -38,9 +38,16 @@ export function AuthGate({ children }: AuthGateProps) {
 
     try {
       const { error } = await getSupabase().auth.signInWithPassword({ email, password })
-      if (error) setError(error.message)
-    } catch {
-      setError('Login failed')
+      if (error) {
+        if (error.message === 'Failed to fetch') {
+          setError('Cannot reach auth server. Check your Supabase project is active.')
+        } else {
+          setError(error.message)
+        }
+      }
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : ''
+      setError(msg === 'Supabase not configured' ? 'Auth not configured.' : 'Login failed. Please try again.')
     } finally {
       setSubmitting(false)
     }
